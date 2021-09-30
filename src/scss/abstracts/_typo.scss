@@ -1,0 +1,51 @@
+@use '../abstracts/colors' as clr;
+@mixin font-base {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+}
+
+@mixin names-font { 
+  @include font-base;
+  font-size: 36px;
+  line-height: 47px;
+}
+@mixin location-font { 
+  @include font-base;
+  font-size: 18px;
+  line-height: 23px;
+  
+  color: clr.$clr-font-primary;
+}
+@mixin description-font {
+  @include font-base;
+  font-size: 10px;
+  line-height: 13px;
+
+  color: clr.$clr-neutral-black;
+}
+@mixin price-font {
+  @include font-base;
+  font-size: 9px;
+  line-height: 12px;
+
+  color: clr.$clr-neutral-grey;
+}
+@mixin tags-font { 
+  @include font-base;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+
+  color: clr.$clr-font-primary;
+}
+@mixin btn-static-font {
+  @include font-base;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: clr.$clr-neutral;
+} 

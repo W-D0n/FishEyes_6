@@ -1,0 +1,16 @@
+{
+"photographers": [
+    {
+      "name": "Mimi Keel",
+      "id": 243,
+      "city": "London",
+      "country": "UK"
+    },
+    {
+      "name": "Ellie-Rose Wilkens",
+      "id": 930,
+      "city": "Paris",
+      "country": "France"
+    }
+  ]
+}

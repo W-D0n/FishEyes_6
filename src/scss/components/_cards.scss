@@ -1,0 +1,54 @@
+@use '../abstracts' as abs;
+@use '../utils' as ut;
+
+.card__container-profil {
+	display:flex;
+	flex-direction:column;	
+	align-items:center;
+	width:300px;
+	height:400px;
+	margin:3rem auto;
+	border-radius:25px;
+
+	background-color: hsla(0,0%,98%,1);
+}
+.card__img__container {
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	overflow: hidden;
+	margin:1rem 1rem 2rem;	
+	box-shadow: 0px 4px 12px abs.$clr-neutral-grey;
+	background-color: abs.$clr-neutral;
+}
+// .img__profil {	
+// 	background-color: abs.$clr-shadow;
+// }
+.profil__name{
+  @include abs.names-font;
+  color: abs.$clr-font-secondary;
+}
+.location {
+	@include abs.location-font;
+}
+.desription__price{
+	@include abs.price-font;
+}
+.profil__tag-list{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.profil__tag-item {
+	@include abs.tags-font;
+	box-sizing: border-box;
+	padding: 0.2rem;
+	border: 0.5px solid abs.$clr-shadow;
+	border-radius: 11px;
+}
+// @include names-font;
+// @include location-font;
+// @include description-font;
+// @include price-font;
+// @include tags-font;

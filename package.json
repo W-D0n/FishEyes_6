@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch src/scss:src/css",
-    "parcel": "parcel ./src/index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,6 @@
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0",
     "@parcel/transformer-sass": "^2.0.0-rc.0",
-    "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",

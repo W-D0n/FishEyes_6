@@ -5,7 +5,6 @@ const apiUrl = '../../../assets/data/FishEyeData.json'
 
 getData(apiUrl).then((data) => {
   const photographersData = data.photographers
-  // eslint-disable-next-line no-unused-vars
   const mediaData = data.media
   console.log(photographersData)
 
@@ -22,7 +21,7 @@ getData(apiUrl).then((data) => {
   //   console.log(el.title)
   // });
 }).catch((err) => {
-  console.log(err)
+  console.log(err);
 })
 
 // //Construction par class

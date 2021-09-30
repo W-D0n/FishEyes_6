@@ -371,6 +371,12 @@ textarea {
   white-space: revert;
 }
 
+.card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+}
+
 .card__container-profil {
   display: flex;
   flex-direction: column;

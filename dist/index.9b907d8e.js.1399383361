@@ -472,6 +472,7 @@ const apiUrl = '../../../assets/data/FishEyeData.json';
 // const apiUrl = '../../../assets/data/photographers.json'
 _functionsJs.getData(apiUrl).then((data)=>{
     const photographersData = data.photographers;
+    // eslint-disable-next-line no-unused-vars
     const mediaData = data.media;
     console.log(photographersData);
     photographersData.forEach((el)=>{
@@ -517,7 +518,7 @@ Récupérer les informations du json
 Boucler pour afficher autant de contenu que d'ittération de photographes
 */ parcelHelpers.export(exports, "getData", ()=>getData
 );
-var _variablesJs = require("./variables.js");
+/* eslint-disable no-undef */ var _variablesJs = require("./variables.js");
 async function getData(url) {
     const response = await fetch(url);
     if (!response.ok) console.log('Retour serveur : ' + response.status);

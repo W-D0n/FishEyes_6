@@ -17,7 +17,7 @@
 </div> */
 
 /************Version longue des appendchild***************
-export async function myFunction() {
+export async function createProfil() {
   //var btn = document.createElement("BUTTON");
   //btn.innerHTML = "CLICK ME";
   //document.body.appendChild(btn);

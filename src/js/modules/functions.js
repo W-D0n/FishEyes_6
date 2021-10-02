@@ -21,7 +21,7 @@ export async function getData (url) {
   }
 };
 
-export async function myFunction(name, city, country, tagline, price, portrait) {
+export async function createProfil(name, city, country, tags, tagline, price, portrait) {
   const profil_Div = document.createElement('div')
   profil_Div.setAttribute('class', 'profil__container')
   profil_Div.setAttribute('id', 'profilContainer')
@@ -39,16 +39,14 @@ export async function myFunction(name, city, country, tagline, price, portrait) 
       <p class="desription__price">${price}<span id="currency">€</span>/jour</p>
     </div>
   </a>
-    
-    <ul class="profil__tag-list" id="tagList">
-    </ul>
   `
-  profil_Div.appendChild(profil_Div) 
-}
-export async function tagItemsCreation (tag) {
-  const profilTagItem = document.createElement('li')
-  profilTagItem.setAttribute('class', 'profil__tag-item')
-  profilTagItem.setAttribute('id', 'tagItem')
-  tagList.appendChild(profilTagItem)
-  profilTagItem.innerHTML = tag
+  const newTagList = document.createElement('ul')
+  newTagList.setAttribute('class', 'profil__tag-list')
+  profil_Div.appendChild(newTagList)
+  tags.forEach(tag => {
+    const newTagItem = document.createElement('li')
+    newTagItem.setAttribute('class', 'profil__tag-item')
+    newTagList.appendChild(newTagItem)
+    newTagItem.innerHTML = `#${tag}`
+  })
 }

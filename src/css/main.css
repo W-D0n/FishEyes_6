@@ -377,7 +377,7 @@ textarea {
   grid-column-gap: 1rem;
 }
 
-.card__container-profil {
+.profil__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -388,7 +388,7 @@ textarea {
   background-color: #fafafa;
 }
 
-.card__img__container {
+.profil__img__container {
   border-radius: 50%;
   height: 200px;
   width: 200px;
@@ -449,6 +449,4 @@ textarea {
   padding: 0.2rem;
   border: 0.5px solid #c4c4c4;
   border-radius: 11px;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

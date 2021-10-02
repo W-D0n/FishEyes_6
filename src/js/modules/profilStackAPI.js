@@ -1,42 +1,28 @@
-import { getData } from './functions.js'
+import { getData, myFunction, tagItemsCreation } from './functions.js'
 
-const apiUrl = '../../../assets/data/FishEyeData.json'
-// const apiUrl = '../../../assets/data/photographers.json'
+const apiUrl = './src/assets/data/FishEyeData.json'
+// const apiUrl = 'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json'
+// const apiUrl = '../../assets/data/photographers.json'
+
+
 
 getData(apiUrl).then((data) => {
   const photographersData = data.photographers
   const mediaData = data.media
-  console.log(photographersData)
+  //console.log(photographersData)
 
   photographersData.forEach(el => {
-    const { name, id } = el
-    console.log(name)
-    console.log(id)
-    // console.log(el.city)
-    // console.log(el.country)
+    const { name, id, city, country, tags, tagline, price, portrait } = el
+    myFunction(name, city, country, tagline, price, portrait)
+    console.log(portrait)
+    tags.forEach(tag => {
+      tagItemsCreation (tag)
+    }) 
   })
   // mediaData.forEach(el => {
   //   console.log(el.id)
-  //   console.log(el.photographerId)
-  //   console.log(el.title)
   // });
 }).catch((err) => {
   console.log(err);
 })
-
-// //Construction par class
-// export default class Profil {
-//   constructor(name, id, city) {
-//     this.name = name
-//     this.id = id
-//     this.city = city
-//     this.country = country,
-//     this.tagline = tagline,
-//     this.price = price,
-//     this.portrait = portrait
-//   }
-// };
-// export function printProfil(profil) {
-//   // console.log(`${profil.name} ${profil.id} ${profil.city} ${profil.country} ${profil.tagline} ${profil.price} ${profil.portrait}`);
-//   console.log(`${profil.name} ${profil.id} ${profil.city}`);
-// };
+//creation ()

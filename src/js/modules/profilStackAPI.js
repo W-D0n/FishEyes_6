@@ -11,12 +11,12 @@ getData(apiUrl).then((data) => {
     const { name, id, city, country, tags, tagline, price, portrait } = el
     createProfil(name, city, country, tags, tagline, price, portrait)
     console.log(portrait)
-  })  
+  })
 }).catch((err) => {
-  console.log(err);
+  console.log(err)
 })
 
-//const mediaData = data.media
+// const mediaData = data.media
 // mediaData.forEach(el => {
-  //   console.log(el.id)
-  // });
+//   console.log(el.id)
+// })

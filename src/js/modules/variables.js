@@ -23,17 +23,17 @@ export async function createProfil() {
   //document.body.appendChild(btn);
   
   // Grid 
-  const cardGrid_Div = document.createElement('div')
-  cardGrid_Div.setAttribute('class', 'card__grid')
-  cardGrid_Div.setAttribute('id', 'cardGrid')
-  main.appendChild(cardGrid_Div)
+  const cardGridDiv = document.createElement('div')
+  cardGridDiv.setAttribute('class', 'card__grid')
+  cardGridDiv.setAttribute('id', 'cardGrid')
+  main.appendChild(cardGridDiv)
 
   // Card profil container
   const gridContainer = document.getElementById('cardGrid')
-  const profil_Div = document.createElement('div')
-  profil_Div.setAttribute('class', 'profil__container')
-  profil_Div.setAttribute('id', 'profilContainer')
-  gridContainer.appendChild(profil_Div)
+  const profilDiv = document.createElement('div')
+  profilDiv.setAttribute('class', 'profil__container')
+  profilDiv.setAttribute('id', 'profilContainer')
+  gridContainer.appendChild(profilDiv)
 
   const profilContainer = document.getElementById('profilContainer')
   

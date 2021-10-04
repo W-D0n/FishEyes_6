@@ -2,15 +2,15 @@ const main = document.getElementById('main-content')
 
 const imgPath = './src/assets/img/Photographers_ID/NabeelBradford.jpg'
 /* Dynamiser l'attribution de l'image : imgPath + la valeur du champ portrait du json */
-//Setup html card grid 
-const cardGrid_Div = document.createElement('div')
-cardGrid_Div.setAttribute('class', 'card__grid')
-cardGrid_Div.setAttribute('id', 'cardGrid')
-main.appendChild(cardGrid_Div)
+// Setup html card grid
+const cardGridDiv = document.createElement('div')
+cardGridDiv.setAttribute('class', 'card__grid')
+cardGridDiv.setAttribute('id', 'cardGrid')
+main.appendChild(cardGridDiv)
 const tagList = document.getElementById('tagList')
 
 export async function getData (url) {
-  const response = await fetch (url)
+  const response = await fetch(url)
 
   if (!response.ok) {
     console.log('Retour serveur : ' + response.status)
@@ -22,12 +22,12 @@ export async function getData (url) {
 };
 
 export async function createProfil(name, city, country, tags, tagline, price, portrait) {
-  const profil_Div = document.createElement('div')
-  profil_Div.setAttribute('class', 'profil__container')
-  profil_Div.setAttribute('id', 'profilContainer')
-  cardGrid_Div.appendChild(profil_Div)
+  const profilDiv = document.createElement('div')
+  profilDiv.setAttribute('class', 'profil__container')
+  profilDiv.setAttribute('id', 'profilContainer')
+  cardGridDiv.appendChild(profilDiv)
 
-  profil_Div.innerHTML = `
+  profilDiv.innerHTML = `
   <a href="#">
     <div class="profil__img__container">
       <img src="./src/assets/img/Photographers_ID/${portrait}" alt="Profil image" class="img__profil" />
@@ -42,7 +42,7 @@ export async function createProfil(name, city, country, tags, tagline, price, po
   `
   const newTagList = document.createElement('ul')
   newTagList.setAttribute('class', 'profil__tag-list')
-  profil_Div.appendChild(newTagList)
+  profilDiv.appendChild(newTagList)
   tags.forEach(tag => {
     const newTagItem = document.createElement('li')
     newTagItem.setAttribute('class', 'profil__tag-item')

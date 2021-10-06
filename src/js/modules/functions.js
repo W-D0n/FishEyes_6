@@ -1,14 +1,15 @@
 const main = document.getElementById('main-content')
 
-const imgPath = './src/assets/img/Photographers_ID/NabeelBradford.jpg'
+// const imgPath = './src/assets/img/Photographers_ID/NabeelBradford.jpg'
 /* Dynamiser l'attribution de l'image : imgPath + la valeur du champ portrait du json */
+
 // Setup html card grid
 const cardGridDiv = document.createElement('div')
 cardGridDiv.setAttribute('class', 'card__grid')
 cardGridDiv.setAttribute('id', 'cardGrid')
 main.appendChild(cardGridDiv)
-const tagList = document.getElementById('tagList')
 
+// request data from API, test response and return data
 export async function getData (url) {
   const response = await fetch(url)
 
@@ -17,14 +18,15 @@ export async function getData (url) {
   } else {
     // console.log(response.status);
     const profilData = await response.json()
+    // console.log(profilData)
     return profilData
   }
 };
 
-export async function createProfil(name, city, country, tags, tagline, price, portrait) {
+// Creation of front page's cards presenting photographers
+export async function createProfil (name, city, country, tags, tagline, price, portrait) {
   const profilDiv = document.createElement('div')
   profilDiv.setAttribute('class', 'profil__container')
-  profilDiv.setAttribute('id', 'profilContainer')
   cardGridDiv.appendChild(profilDiv)
 
   profilDiv.innerHTML = `
@@ -36,17 +38,43 @@ export async function createProfil(name, city, country, tags, tagline, price, po
     <div class="profil__description">
       <h3 class="location">${country}, <span>${city}</span></h3>
       <p class="description__text">${tagline}</p>
-      <p class="desription__price">${price}<span id="currency">€</span>/jour</p>
+      <p class="desription__price">${price}<span>€</span>/jour</p>
     </div>
   </a>
   `
+  // Creation of tags list of each photographers
   const newTagList = document.createElement('ul')
   newTagList.setAttribute('class', 'profil__tag-list')
   profilDiv.appendChild(newTagList)
   tags.forEach(tag => {
     const newTagItem = document.createElement('li')
-    newTagItem.setAttribute('class', 'profil__tag-item')
+    newTagItem.setAttribute('class', 'tag-item')
     newTagList.appendChild(newTagItem)
     newTagItem.innerHTML = `#${tag}`
   })
+}
+
+// eslint-disable-next-line no-unused-vars
+function Photographer (name, id, city, country, tags, tagline, price, portrait) {
+  this.name = name
+  this.id = id
+  this.city = city
+  this.country = country
+  this.tags = tags
+  this.tagline = tagline
+  this.price = price
+  this.portrait = portrait
+}
+
+// eslint-disable-next-line no-unused-vars
+function Photo (name, id, photographerId, title, image, tags, likes, date, price) {
+  this.name = name
+  this.id = id
+  this.photographerId = photographerId
+  this.title = title
+  this.image = image
+  this.tags = []
+  this.likes = likes
+  this.date = date
+  this.price = price
 }

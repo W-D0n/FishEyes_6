@@ -1,2 +1,6 @@
 
 node_modules/
+
+src/js/modules/variables.js
+
+src/js/modules/test.js

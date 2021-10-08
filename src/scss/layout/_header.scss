@@ -1,0 +1,27 @@
+@use '../abstracts/colors' as clr;
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-top: 2rem;
+  margin-inline: 4rem;
+}
+.logo {
+  width: 200px;
+  height:50px;
+}
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag__list {
+  display: flex;
+  align-items: center;
+}
+.heading {
+  margin: initial;
+  font-family: DM Sans;
+  text-align: center;
+  font-size: 2.1rem;
+  color: clr.$font-primary;
+}

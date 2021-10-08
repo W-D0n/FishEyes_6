@@ -16,21 +16,21 @@
   font-size: 18px;
   line-height: 23px;
   
-  color: clr.$clr-font-primary;
+  color: clr.$font-primary;
 }
 @mixin description-font {
   @include font-base;
   font-size: 10px;
   line-height: 13px;
 
-  color: clr.$clr-neutral-black;
+  color: clr.$neutral-black;
 }
 @mixin price-font {
   @include font-base;
   font-size: 9px;
   line-height: 12px;
 
-  color: clr.$clr-neutral-grey;
+  color: clr.$neutral-grey;
 }
 @mixin tags-font { 
   @include font-base;
@@ -39,7 +39,7 @@
   line-height: 16px;
   text-align: center;
 
-  color: clr.$clr-font-primary;
+  color: clr.$font-primary;
 }
 @mixin btn-static-font {
   @include font-base;
@@ -47,5 +47,5 @@
   font-size: 18px;
   line-height: 23px;
 
-  color: clr.$clr-neutral;
+  color: clr.$neutral;
 } 

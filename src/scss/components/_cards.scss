@@ -14,31 +14,31 @@
 	width:300px;
 	height:400px;
 	margin:3rem auto;
-	border-radius:25px;
+	border-radius:ut.$card-radius;
 
 	background-color: hsla(0,0%,98%,1);
 }
 .profil__img__container {
-	border-radius: 50%;
+	border-radius: ut.$portrait-radius;
 	height: 200px;
 	width: 200px;
 	object-fit: cover;
 	overflow: hidden;
 	margin:1rem 1rem 2rem;	
-	box-shadow: 0px 4px 12px abs.$clr-neutral-grey;
-	background-color: abs.$clr-neutral;
+	box-shadow: 0px 4px 12px abs.$neutral-grey;
+	background-color: abs.$neutral;
 }
 // .img__profil {	
-// 	background-color: abs.$clr-shadow;
+// 	background-color: abs.$shadow;
 // }
 .profil__name{
   @include abs.names-font;
-  color: abs.$clr-font-secondary;
+  color: abs.$font-secondary;
 }
 .location {
 	@include abs.location-font;
 }
-.desription__price{
+.description__price{
 	@include abs.price-font;
 }
 .profil__tag-list{
@@ -50,7 +50,7 @@
 	@include abs.tags-font;
 	box-sizing: border-box;
 	padding: 0.2rem;
-	border: 0.5px solid abs.$clr-shadow;
+	border: 0.5px solid abs.$shadow;
 	border-radius: 11px;
 }
 // @include names-font;

@@ -1,14 +1,15 @@
-import { getData, createProfil } from './functions.js'
+import { getData, createHomePage } from './functions.js'
 
-const apiUrl = './src/assets/data/FishEyeData.json'
+const apiUrl = '/src/assets/data/FishEyeData.json'
 // const apiUrl = 'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json'
 
 getData(apiUrl)
   .then((data) => {
+    // const imgPath = '/src/assets/'
     const { photographers } = data
     photographers.forEach(el => {
-      const { name, city, country, tags, tagline, price, portrait } = el
-      createProfil(name, city, country, tags, tagline, price, portrait)
+      const { name, id, city, country, tags, tagline, price, portrait } = el
+      createHomePage(name, id, city, country, tags, tagline, price, portrait)
     })
     return data
   })
@@ -36,6 +37,7 @@ getData(apiUrl)
     console.log(err)
   })
 
+// data(apiUrl)
 // const mediaData = data.media
 // mediaData.forEach(el => {
 //   console.log(el.id)

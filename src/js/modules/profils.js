@@ -1,15 +1,15 @@
-import { getData, createHomePage } from './functions.js'
+import { fnGetData, fnCreateHomePage } from './functions.js'
 
 const apiUrl = '/src/assets/data/FishEyeData.json'
 // const apiUrl = 'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json'
 
-getData(apiUrl)
+fnGetData(apiUrl)
   .then((data) => {
     // const imgPath = '/src/assets/'
     const { photographers } = data
     photographers.forEach(el => {
       const { name, id, city, country, tags, tagline, price, portrait } = el
-      createHomePage(name, id, city, country, tags, tagline, price, portrait)
+      fnCreateHomePage(name, id, city, country, tags, tagline, price, portrait)
     })
     return data
   })

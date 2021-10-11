@@ -1,17 +1,7 @@
 import { fnGetData, fnCreateProfil, fnCreateGallery } from './functions.js'
 
-const apiUrl = '/src/assets/data/FishEyeData.json'
+const apiUrl = './src/assets/data/FishEyeData.json'
 
-// fnGetData(apiUrl)
-//   .then((data) => {
-//     // const imgPath = '../src/assets/'
-//     const photographers = data.photographers
-//     const media = data.media
-//     // const htmlParent =
-//     // const { name, city, country, tags, tagline, price, portrait } = photographers
-//     // cardCreation(htmlParent, name, city, country, tags, tagline, price, portrait)
-//     // const { mediaId, photographerId, title, image, tags, likes, date, price } = media
-//   })
 fnGetData(apiUrl).then((data) => {
   // Getting id from URL
   const params = (new URL(document.location)).searchParams

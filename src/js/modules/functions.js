@@ -56,7 +56,7 @@ export async function fnCreateGallery (mediaId, photographerId, title, content, 
 
   mediaContainer.innerHTML = `
   <article class="media__container">
-    <${label} class="media__content" src="./src/assets/media/${photographerId}/${content}"  alt="" />
+    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="" />
     <div class="legend">
       <h4>${title}</h4>
       <button class="legend__likes">
@@ -70,7 +70,7 @@ export async function fnCreateGallery (mediaId, photographerId, title, content, 
 const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, portrait) => {
   parentHtml.innerHTML = `
   <div class="profil__img__container">
-    <img src="./src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
+    <img src="/src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
   </div>
   <h2 class="profil__name">${name}</h2>
   <div class="profil__description" id="desc${id}">

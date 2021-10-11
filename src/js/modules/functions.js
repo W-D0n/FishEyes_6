@@ -21,7 +21,7 @@ export const fnGetData = async (url) => {
 export async function fnCreateHomePage (name, id, city, country, tags, tagline, price, portrait) {
   const profilDiv = document.createElement('a')
   profilDiv.setAttribute('class', 'profil__container link')
-  profilDiv.setAttribute('href', `./pages/photographer.html?id=${id}&name=${name}`)
+  profilDiv.setAttribute('href', `pages/photographer.html?id=${id}&name=${name}`)
   cardGridDiv.appendChild(profilDiv)
 
   insertHtml(profilDiv, name, id, city, country, tags, tagline, price, portrait)

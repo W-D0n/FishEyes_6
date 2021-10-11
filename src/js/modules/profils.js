@@ -36,9 +36,3 @@ fnGetData(apiUrl)
   .catch((err) => {
     console.log(err)
   })
-
-// data(apiUrl)
-// const mediaData = data.media
-// mediaData.forEach(el => {
-//   console.log(el.id)
-// })

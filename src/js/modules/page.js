@@ -1,6 +1,6 @@
 import { fnGetData, fnCreateProfil, fnCreateGallery } from './functions.js'
 
-const apiUrl = './src/assets/data/FishEyeData.json'
+const apiUrl = '/src/assets/data/FishEyeData.json'
 
 fnGetData(apiUrl).then((data) => {
   // Getting id from URL

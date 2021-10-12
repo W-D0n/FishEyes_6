@@ -1,4 +1,5 @@
 @use '../utils' as ut;
+@use "../abstracts/colors" as clr;
 
 .gallery__container {
   display: grid;
@@ -28,6 +29,7 @@
   justify-content: space-between;
   padding-top: .5rem;
   padding-bottom: .5rem;
+  color: clr.$primary;
 }
 // .legend__likes {
   

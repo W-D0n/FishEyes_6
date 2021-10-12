@@ -1,4 +1,5 @@
-import {} from './modules/profils.js'
+import {} from './modules/home.js'
 import {} from './modules/form.js'
 import {} from './modules/modal.js'
+import {} from './modules/lightbox.js'
 import {} from './modules/navigation.js'

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -353,7 +354,7 @@ template {
 }
 
 /* Remove list styles (bullets/numbers) */
-ol, ul {
+ol, ul, li {
   list-style: none;
 }
 
@@ -376,6 +377,214 @@ textarea {
   position: fixed;
 }
 
+.cta-contact {
+  position: absolute;
+  right: -12rem;
+  width: 9.45rem;
+  height: 4rem;
+  cursor: pointer;
+  background-color: #911d1d;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: sub;
+  color: white;
+}
+.cta-contact:hover {
+  transition: all 100ms ease-in-out;
+  background-color: #db8876;
+  color: black;
+}
+
+.custom-select {
+  display: flex;
+  position: relative;
+  margin: 1rem 4rem 2rem;
+}
+
+.select {
+  width: 9.45rem;
+  height: 4rem;
+  cursor: pointer;
+  background-color: #911d1d;
+  border-radius: 5px;
+  position: relative;
+}
+.select_text {
+  align-self: center;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+.select_expand {
+  width: 0;
+  height: 3.83rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.select_expand::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translate(-50%, -50%) rotate(90deg);
+  color: white;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 2;
+  color: white;
+  transition: all 250ms ease-in-out;
+}
+.select_expand:checked::after {
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(-1);
+}
+.select_expandLabel {
+  display: block;
+  width: 100%;
+  height: 69px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.select_close {
+  display: none;
+}
+.select_closeLabel {
+  width: 9.45rem;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.select_items {
+  width: 9.45rem;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  padding-top: 69px;
+}
+.select_input {
+  display: none;
+}
+.select_label {
+  display: block;
+  height: 0;
+  font-size: 1rem;
+  line-height: 69px;
+  overflow: hidden;
+  color: white;
+  background-color: #911d1d;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.select_label-placeholder {
+  height: 69px;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+.select_expand:checked + .select_closeLabel {
+  display: block;
+}
+.select_expand:checked + .select_closeLabel + .select_options {
+  background: #911d1d;
+  border-radius: 0 0 5px 5px;
+}
+.select_expand:checked + .select_closeLabel + .select_options .select_label {
+  height: 69px;
+  background: transparent;
+}
+.select_expand:checked + .select_closeLabel + .select_options .select_label:hover {
+  transition: all 100ms ease-in-out;
+  background-color: #db8876;
+  color: black;
+}
+.select_expand:checked + .select_closeLabel + .select_options + .select_expandLabel {
+  display: none;
+}
+.select_expand:checked + .select_closeLabel + .select_options + .select_option {
+  border-radius: 5px;
+}
+.select_expand:checked + .select_closeLabel + .select_options .select_option:nth-child(2) .select_label:hover {
+  border-radius: 0 0 5px 5px;
+}
+.select_input:checked + .select_label {
+  height: 69px;
+  margin-top: -69px;
+  background-color: #911d1d;
+  border-radius: 5px;
+}
+.select .border-top {
+  display: block;
+  height: 100%;
+  width: 85%;
+  border-top: 1px solid white;
+}
+
+.select_input:checked + .select_label .border-top {
+  border-top: none;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.lightbox__inner {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100px;
+  background: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox__close {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox__close:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.hidden {
+  height: 100%;
+  display: none;
+}
+
+.al-c {
+  text-align: center;
+}
+
+.photogr-name__view {
+  font-size: 3rem;
+}
+
 .card__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -390,7 +599,6 @@ textarea {
   height: 400px;
   margin: 3rem auto;
   border-radius: 25px;
-  background-color: #fafafa;
 }
 
 .profil__img__container {
@@ -400,27 +608,32 @@ textarea {
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
-  margin: 1rem 1rem 2rem;
   box-shadow: 0px 4px 12px #757575;
   background-color: white;
+}
+
+.profil__description {
+  margin-top: 2rem;
 }
 
 .profil__name {
   font-family: DM Sans;
   font-style: normal;
-  font-weight: normal;
-  text-align: center;
-  font-size: 36px;
+  font-weight: 400;
+  font-size: 2rem;
   line-height: 47px;
   color: #d3573c;
+}
+
+.profil__name.photogr-name__view {
+  font-size: 3rem;
 }
 
 .location {
   font-family: DM Sans;
   font-style: normal;
-  font-weight: normal;
-  text-align: center;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 1rem;
   line-height: 23px;
   color: #911d1d;
 }
@@ -428,9 +641,8 @@ textarea {
 .description__price {
   font-family: DM Sans;
   font-style: normal;
-  font-weight: normal;
-  text-align: center;
-  font-size: 9px;
+  font-weight: 400;
+  font-size: 0.5rem;
   line-height: 12px;
   color: #757575;
 }
@@ -444,17 +656,45 @@ textarea {
 .tag-item {
   font-family: DM Sans;
   font-style: normal;
-  font-weight: normal;
-  text-align: center;
+  font-weight: 400;
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
-  text-align: center;
   color: #911d1d;
   box-sizing: border-box;
-  padding: 0.2rem;
+  margin-right: 0.4rem;
+  padding: 0.22rem;
   border: 0.5px solid #c4c4c4;
   border-radius: 11px;
+}
+.tag-item:hover {
+  transition: all 100ms ease-in-out;
+  background-color: #911d1d;
+  color: white;
+}
+
+.photograph__container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 4rem;
+  margin-top: 2rem;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.photogr__view {
+  position: relative;
+}
+
+.photogr__view * {
+  margin-bottom: 1rem;
+}
+
+.photogr__rating {
+  position: absolute;
 }
 
 .gallery__container {
@@ -484,10 +724,12 @@ textarea {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  color: #911d1d;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 .link {

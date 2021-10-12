@@ -1,0 +1,39 @@
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.lightbox__inner {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100px;
+  background: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox__close {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox__close:hover {
+  color: rgba(0, 0, 0, 0.8);
+}

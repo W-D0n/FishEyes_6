@@ -27,23 +27,25 @@ export async function fnCreateHomePage (name, id, city, country, tags, tagline, 
   insertHtml(profilDiv, name, id, city, country, tags, tagline, price, portrait)
 
   // Adding price field
-  const desc = document.getElementById(`desc${id}`)
+  const desc = document.getElementById(`info_${id}`)
   const descPrice = document.createElement('p')
   descPrice.setAttribute('class', 'description__price')
   desc.appendChild(descPrice)
   descPrice.innerHTML = `${price}<span>€</span>/jour`
 
-  createTagList(profilDiv, tags)
+  createTagList(tags, id)
 }
 // Creation of photographer's presentation
-export async function fnCreateProfil (name, id, city, country, tags, tagline, price, portrait) {
+export async function fnCreatePhotographer (name, id, city, country, tags, tagline, price, portrait) {
   main.removeChild(cardGridDiv)
   const photographContainer = document.createElement('div')
   photographContainer.setAttribute('class', 'photograph__container')
   main.appendChild(photographContainer)
 
   insertHtml(photographContainer, name, id, city, country, tags, tagline, price, portrait)
-  createTagList(photographContainer, tags)
+  toggleClassNames(id) // To remove align center class
+  createTagList(tags, id)
+  // ctaContact(photographContainer)
 }
 // Creation of photographer's gallery
 export async function fnCreateGallery (mediaId, photographerId, title, content, tags, likes, date, price) {
@@ -67,38 +69,100 @@ export async function fnCreateGallery (mediaId, photographerId, title, content, 
   </article>
   `
 }
+// Global html insert in home/photographers pages
 const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, portrait) => {
   parentHtml.innerHTML = `
   <div class="profil__img__container">
     <img src="/src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
   </div>
-  <h2 class="profil__name">${name}</h2>
-  <div class="profil__description" id="desc${id}">
-    <h3 class="location">${country}, <span>${city}</span></h3>
-    <p class="description__text">${tagline}</p>
+  <div class="profil__description" id="profil_${id}">
+    <button class="cta-contact" id="cta-contact">Contactez-moi</button>
+    <h2 class="profil__name al-c" id="name_${id}">${name}</h2>
+    <div class="profil__info al-c" id="info_${id}">
+      <h3 class="location al-c" id="location_${id}">${country}, <span>${city}</span></h3>
+      <p class="description__text al-c" id="txt_${id}">${tagline}</p>
+    </div>
+    <u class="profil__tag-list" id="tagList_${id}"></u>
   </div>
+  <div class="photogr__rating"></div>
 `
 }
-const createTagList = (parentHtml, tags) => {
+const createTagList = (tags, id) => {
   // Creation of tags list of each photographers
-  const newTagList = document.createElement('ul')
-  newTagList.setAttribute('class', 'profil__tag-list')
-  parentHtml.appendChild(newTagList)
+  const newTagList = document.getElementById(`tagList_${id}`)
 
   tags.forEach(tag => {
     const newTagItem = document.createElement('li')
     newTagItem.setAttribute('class', 'tag-item')
     newTagList.appendChild(newTagItem)
-    newTagItem.innerHTML = `#${tag}`
+    newTagItem.innerHTML = '# ' + `${tag}`
   })
 }
-
 function fnGetExtension (filePath) {
-  // console.log(filePath)
   let label = ''
   const fileExtension = filePath.split('.').pop()
-  // console.log(fileExtension)
   fileExtension === 'mp4' ? label = 'video' : label = 'img'
-  // console.log(label)
   return label
+}
+const toggleClassNames = (id) => {
+  document.getElementById(`profil_${id}`).classList.toggle('profil__description')
+  document.getElementById(`profil_${id}`).classList.toggle('photogr__view')
+  document.getElementById(`name_${id}`).classList.toggle('al-c')
+  document.getElementById(`name_${id}`).classList.toggle('photogr-name__view')
+  document.getElementById(`info_${id}`).classList.toggle('al-c')
+  document.getElementById(`info_${id}`).classList.toggle('photogr-info__view')
+  document.getElementById(`location_${id}`).classList.toggle('al-c')
+  document.getElementById(`location_${id}`).classList.toggle('photogr-location__view')
+  document.getElementById(`txt_${id}`).classList.toggle('al-c')
+  document.getElementById(`txt_${id}`).classList.toggle('photogr-txt__view')
+}
+export async function fnCreateFilter (htmlContext) {
+  htmlContext.innerHTML = `
+  <p class="select_text"> Trier par </p>
+  <ul class="select">
+    <li>
+      <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
+      <span class="select_label select_label-placeholder">Popularité</span>
+    </li>
+    <li class="select_items">
+      <input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
+      <label class="select_closeLabel" for="customselect-close"></label>
+
+      <ul class="select_options">
+        <li class="select_option">
+          <input class="select_input" type="radio" name="customselect" id="customselect-date" />
+          <label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
+        </li>
+        <li class="select_option">
+          <input class="select_input" type="radio" name="customselect" id="customselect-titre" />
+          <label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
+        </li>
+      </ul>
+
+      <label class="select_expandLabel" for="customselect-opener"></label>
+    </li>
+  </ul>
+  `
+}
+// const ctaContact = (container) => {
+//   container.innerHTML = '<a class="cta-contact"></a>'
+// }
+export async function removeForm (form) {
+  if (form.classList.contains('hidden')) {
+    form.classList.remove('hidden')
+    setTimeout(function () {
+      form.classList.remove('visuallyhidden')
+    }, 200)
+  } else {
+    form.classList.add('visuallyhidden')
+    form.addEventListener('transitionend', function (e) {
+      form.classList.add('hidden')
+    },
+    {
+      capture: false,
+      once: true,
+      passive: false
+    })
+  }
+  form.reset()
 }

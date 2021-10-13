@@ -39,6 +39,8 @@
   background-color: clr.$bg-primary;
   border-radius: 5px;
   position: relative;
+
+  z-index: 1;
   &_text {
     align-self: center;
     font-weight: bold;

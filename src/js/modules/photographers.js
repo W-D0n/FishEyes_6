@@ -1,5 +1,9 @@
+// import data from '../../assets/data/FishEyeData.json'
 import { fnGetData, fnCreatePhotographer, fnCreateGallery, fnCreateFilter } from './functions.js'
-import Lightbox from './lightbox'
+// import Lightbox, { getArray } from './lightbox.js'
+
+// import Lightbox from './lightbox'
+import NewLightbox from './lightbox'
 
 const apiUrl = '/src/assets/data/FishEyeData.json'
 
@@ -45,4 +49,29 @@ fnGetData(apiUrl).then((data) => {
     }
   })
 })
-Lightbox.activate()
+// Lightbox.activate()
+// getArray()
+NewLightbox.init()
+
+// Lightbox.activate()
+// Lightbox.show('<p>lightbox contents</p>')
+
+// const lightboxTrigger = document.getElementsByClassName('media__content')
+const list = Array.from(document.querySelectorAll('.media__link'))
+// const links = document.querySelectorAll('img[src$=".jpg"], video[src$=".mp4"]')
+// console.log(lightboxTrigger)
+// console.log(typeof (lightboxTrigger))
+console.log(list)
+console.log(typeof (list))
+// console.log(links)
+// console.log(typeof (links))
+
+// for (const prop in lightboxTrigger) {
+//   console.log(prop)
+// }
+// for (const i of list) {
+//   console.log(i)
+// }
+// list.forEach(k => {
+//   console.log(k)
+// })

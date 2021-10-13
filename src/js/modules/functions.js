@@ -50,24 +50,24 @@ export async function fnCreatePhotographer (name, id, city, country, tags, tagli
 // Creation of photographer's gallery
 export async function fnCreateGallery (mediaId, photographerId, title, content, tags, likes, date, price) {
   const galleryContainer = document.getElementById('galleryContainer')
-  const mediaContainer = document.createElement('a')
-  mediaContainer.setAttribute('class', 'media__container link')
+  const mediaContainer = document.createElement('div')
+  mediaContainer.setAttribute('class', 'media__container')
   galleryContainer.appendChild(mediaContainer)
 
   const label = fnGetExtension(content)
 
   mediaContainer.innerHTML = `
-  <article class="media__container">
+  <a class="media__link" href="/src/assets/media/${photographerId}/${content}">
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="" />
+  </a>
     <div class="legend">
-      <h4>${title}</h4>
-      <button class="legend__likes">
-        <span class="likes__counter">${likes}</span>
-        <span class="fas fa-heart likes__icon"></span>
-      </button>
-    </div>
-  </article>
-  `
+    <h4>${title}</h4>
+    <button class="legend__likes">
+      <span class="likes__counter">${likes}</span>
+      <span class="fas fa-heart likes__icon"></span>
+    </button>
+  </div>
+`
 }
 // Global html insert in home/photographers pages
 const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, portrait) => {
@@ -84,7 +84,6 @@ const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, p
     </div>
     <u class="profil__tag-list" id="tagList_${id}"></u>
   </div>
-  <div class="photogr__rating"></div>
 `
 }
 const createTagList = (tags, id) => {
@@ -93,7 +92,7 @@ const createTagList = (tags, id) => {
 
   tags.forEach(tag => {
     const newTagItem = document.createElement('li')
-    newTagItem.setAttribute('class', 'tag-item')
+    newTagItem.classList.add('tag-item')
     newTagList.appendChild(newTagItem)
     newTagItem.innerHTML = '# ' + `${tag}`
   })

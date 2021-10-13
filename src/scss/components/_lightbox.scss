@@ -1,39 +1,107 @@
+@use '../utils' as ut;
+@use '../abstracts/colors' as clr;
+
+//Réglages suivant Grafikart
+.lightbox__next,
+.lightbox__prev {
+  background: url(/src/assets/icons/arrow.svg) center center / 72px 72px no-repeat;
+  width: 2rem;
+  height: 100%;
+  position: fixed;
+  right: 0;
+}
+.lightbox__prev {
+  right: auto;
+  left: 0;
+  transform: rotate(180deg);
+}
+.lightbox__close{
+  background: url(/src/assets/icons/close.svg) center center / 36px 36px no-repeat;
+  width: 36px;
+  height: 36px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+}
+.lightbox button{
+  opacity: 0.7;
+  text-indent: -100rem;
+  cursor: pointer;
+  transition: opacity 200ms;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: 15px;
+
+  overflow: auto;
+  z-index: 3;
+  animation: lightboxin 500ms;
+  transition: 300ms;
+}
+.lightbox__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 2rem;
+  min-height: 100vh;
+}
+.lightbox__container img,
+.lightbox__container video {
+  max-width: 100%;
+  height: auto;
+  animation: lightboxin 500ms;
+}
+.lightbox__loader {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.5;
+  background: url(/src/assets/icons/loader.svg) center center / 2rem 2rem no-repeat;
+}
+.lightbox.fadeout {
+  opacity: 0;
+}
+@keyframes lightboxin {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-.lightbox__inner {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  min-height: 100px;
-  background: white;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-}
+// .lightbox__inner {
+//   position: relative;
+//   width: 100%;
+//   max-width: 800px;
+//   min-height: 100px;
+//   background: white;
+//   border-radius:ut.$card-radius;
+//   box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+// }
 
-.lightbox__close {
-  background: none;
-  border: none;
-  outline: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 10px;
-  font-size: 40px;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.5);
-}
+// .lightbox__close {
+//   background: none;
+//   border: none;
+//   outline: none;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   padding: 0 10px;
+//   font-size: 40px;
+//   cursor: pointer;
+//   color: rgba(0, 0, 0, 0.5);
+// }
 
-.lightbox__close:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
+// .lightbox__close:hover {
+//   color: rgba(0, 0, 0, 0.8);
+// }

@@ -15,7 +15,6 @@
 	width:300px;
 	height:400px;
 	margin:3rem auto;
-	border-radius:ut.$card-radius;
 }
 .profil__img__container {
 	border-radius: ut.$portrait-radius;
@@ -42,6 +41,7 @@
 }
 .description__price{
 	@include abs.price-font;
+	margin-block: 0.4rem;
 }
 .profil__tag-list{
 	display: flex;

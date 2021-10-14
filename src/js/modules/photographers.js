@@ -3,7 +3,7 @@ import { fnGetData, fnCreatePhotographer, fnCreateGallery, fnCreateFilter } from
 // import Lightbox, { getArray } from './lightbox.js'
 
 // import Lightbox from './lightbox'
-import NewLightbox from './lightbox'
+import NewLightbox from './lightbox.js'
 
 const apiUrl = '/src/assets/data/FishEyeData.json'
 

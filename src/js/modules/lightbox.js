@@ -63,7 +63,9 @@ export default class NewLightbox {
     // const main = document.getElementById('#main-content')
     this.element = this.buildDom(url)
     this.loadImg(url)
+    this.onKeyUp = this.onKeyUp.bind(this)
     document.body.appendChild(this.element)
+    document.addEventListener('keyup', this.onKeyUp)
     // main.insertAdjacentHTML('beforeend', element)
   }
 

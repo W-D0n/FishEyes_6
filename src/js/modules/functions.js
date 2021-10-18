@@ -55,18 +55,16 @@ export async function fnCreateGallery (mediaId, photographerId, title, content, 
   galleryContainer.appendChild(mediaContainer)
 
   const label = fnGetExtension(content)
-
+  // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
-  <a class="media__link" href="/src/assets/media/${photographerId}/${content}">
-    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="" />
-  </a>
+    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" />
     <div class="legend">
-    <h4>${title}</h4>
-    <button class="legend__likes">
-      <span class="likes__counter">${likes}</span>
-      <span class="fas fa-heart likes__icon"></span>
-    </button>
-  </div>
+      <h4>${title}</h4>
+      <button class="legend__likes">
+        <span class="likes__counter">${likes}</span>
+        <span class="fas fa-heart likes__icon"></span>
+      </button>
+    </div>
 `
 }
 // Global html insert in home/photographers pages
@@ -97,12 +95,14 @@ const createTagList = (tags, id) => {
     newTagItem.innerHTML = '# ' + `${tag}`
   })
 }
+// Get the file extension for insert it in gallery insertion
 function fnGetExtension (filePath) {
   let label = ''
   const fileExtension = filePath.split('.').pop()
   fileExtension === 'mp4' ? label = 'video' : label = 'img'
   return label
 }
+// Toggle between classnames for css display
 const toggleClassNames = (id) => {
   document.getElementById(`profil_${id}`).classList.toggle('profil__description')
   document.getElementById(`profil_${id}`).classList.toggle('photogr__view')
@@ -115,6 +115,7 @@ const toggleClassNames = (id) => {
   document.getElementById(`txt_${id}`).classList.toggle('al-c')
   document.getElementById(`txt_${id}`).classList.toggle('photogr-txt__view')
 }
+// Insertion of filter button
 export async function fnCreateFilter (htmlContext) {
   htmlContext.innerHTML = `
   <p class="select_text"> Trier par </p>
@@ -143,9 +144,7 @@ export async function fnCreateFilter (htmlContext) {
   </ul>
   `
 }
-// const ctaContact = (container) => {
-//   container.innerHTML = '<a class="cta-contact"></a>'
-// }
+// remove form from display
 export async function removeForm (form) {
   if (form.classList.contains('hidden')) {
     form.classList.remove('hidden')
@@ -164,4 +163,8 @@ export async function removeForm (form) {
     })
   }
   form.reset()
+}
+// Just for testing
+export function fnConsole () {
+  console.log('Test OK')
 }

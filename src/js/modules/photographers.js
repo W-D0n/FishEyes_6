@@ -1,15 +1,14 @@
-// import data from '../../assets/data/FishEyeData.json'
 import { fnGetData, fnCreatePhotographer, fnCreateGallery, fnCreateFilter } from './functions.js'
-// import Lightbox, { getArray } from './lightbox.js'
 
-// import Lightbox from './lightbox'
-import NewLightbox from './lightbox.js'
+import Lightbox from './lightbox.js'
 
 const apiUrl = '/src/assets/data/FishEyeData.json'
+const mediaList = []
+let lightbox = null
 
 fnGetData(apiUrl).then((data) => {
   // 1 : Create photographer's card
-
+  // mediaList = data.media
   // Getting id from URL
   const params = (new URL(document.location)).searchParams
   const urlId = parseFloat(params.get('id'))
@@ -46,32 +45,36 @@ fnGetData(apiUrl).then((data) => {
     if (photographerId === urlId) {
       // console.log('Image: ' + content)
       fnCreateGallery(mediaId, photographerId, title, content, tags, likes, date, price)
+      mediaList.push(media)
     }
   })
+  // console.log(mediaUrlList)
+  // const target = document.querySelector('#galleryContainer > div:nth-child(3) > a > img')
+
+  const selector = document.querySelectorAll('.media__content')
+
+  // console.log(mediaList)
+  // console.log(selector)
+  //  '.media__content'
+  getHtmlElements(mediaList, selector)
 })
-// Lightbox.activate()
-// getArray()
-NewLightbox.init()
 
-// Lightbox.activate()
-// Lightbox.show('<p>lightbox contents</p>')
-
-// const lightboxTrigger = document.getElementsByClassName('media__content')
-const list = Array.from(document.querySelectorAll('.media__link'))
-// const links = document.querySelectorAll('img[src$=".jpg"], video[src$=".mp4"]')
-// console.log(lightboxTrigger)
-// console.log(typeof (lightboxTrigger))
-console.log(list)
-console.log(typeof (list))
-// console.log(links)
-// console.log(typeof (links))
-
-// for (const prop in lightboxTrigger) {
-//   console.log(prop)
+// console.log(mediaList)
+// Getting nodelist of media and launch lightbox
+function getHtmlElements (media, arr) {
+  // console.log(arr)
+  for (const target of arr) {
+    target.addEventListener('click', e => {
+      e.preventDefault()
+      // console.log(e.target.src)
+      lightbox = new Lightbox('#lightbox', mediaList)
+    })
+  }
+}
+// Lightbox.init()
+// lightbox = new Lightbox('#lightbox-modal', photographerMedias)
+// si besoin de l'id ou du tag : on va utiliser le " ?? "
+// fonction filtrer par id ou tag (id, tag) {
+// if id = null/undefined {filtrer par  tag}
+// else {filtrer par id}
 // }
-// for (const i of list) {
-//   console.log(i)
-// }
-// list.forEach(k => {
-//   console.log(k)
-// })

@@ -57,7 +57,9 @@ export async function fnCreateGallery (mediaId, photographerId, title, content, 
   const label = fnGetExtension(content)
   // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
+  <a href="/src/assets/media/${photographerId}/${content}" class="media__links">
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" />
+  </a>
     <div class="legend">
       <h4>${title}</h4>
       <button class="legend__likes">
@@ -168,3 +170,31 @@ export async function removeForm (form) {
 export function fnConsole () {
   console.log('Test OK')
 }
+// export async function getHtmlElements (media, arr) {
+//   // console.log(media)
+//   // console.log(arr)
+//   for (const target of arr) {
+//     target.addEventListener('click', e => {
+//       e.preventDefault()
+//       console.log(e.target.src)
+//     })
+//   }
+// }
+// export async function createLightboxMedias (mediaList, HTMLparent) {
+//   HTMLparent = document.getElementsById('lightbox__container')
+//     const newLi = document.createElement("li");
+//   if (!tags sélectionné ===  media.tags) {
+//     afficher tous les medias
+//     newLi.innerHTML = `<img src="${media.src}">`;
+//     newLi.onclick = () => {lightbox.show(index);};
+//     mediasList.appendChild(li);
+//   } else {
+//     afficher medias avec media.tags === tags sélectionné
+//   }
+// }
+//
+// IL FAUT FAIRE UN TRI SUR : LIKES OR DATE PAR TITRE
+// utiliser sort() sur un array
+// if la checkbox de l'input est sélectionné alors checked = true
+// if true sort() array sur la propriété like(number)/date(object date)/titre(ordre alpha)
+// push le résultat dans un array pour l'afficher

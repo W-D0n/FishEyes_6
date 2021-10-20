@@ -1,10 +1,10 @@
+import { getExtension } from './functions.js'
 import { getMediaList } from './photographers.js'
 
-const mediaList = getMediaList()
 /**
    * @property {HTMLElement} element
    * @property {string[]} images lightbox's images path
-   * @property {string} url currently displayed image
+   * @property {string} url currently displayed content
    */
 export default class Lightbox {
   static init () {
@@ -18,13 +18,13 @@ export default class Lightbox {
   }
 
   /**
-   * @param {string} url image's URL
+   * @param {string} url content's URL
    * @param {string[]} images lightbox's images path
    */
-  constructor (url, images) {
+  constructor (url, contents) {
     this.element = this.buildDom(url)
-    this.images = images
-    this.loadImage(url)
+    this.contents = contents
+    this.loadContent(url)
     this.onKeyUp = this.onKeyUp.bind(this)
     // document.body.insertAdjacentHTML('beforeend', element)
     document.body.appendChild(this.element)
@@ -32,22 +32,33 @@ export default class Lightbox {
   }
 
   /**
-   *  Display loader and load image
+   *  Display loader and load content
    * @param {string} url
    */
-  loadImage (url) {
+  loadContent (url) {
     this.url = null
-    const image = new Image()
+    let type = ''
+
+    const fileExtension = url.split('.').pop()
+    console.log('fileExtension : ', fileExtension)
+    fileExtension === 'jpg' ? type = 'img' : type = 'video'
+    console.log('type : ', type)
+
+    const content = document.createElement(`${type}`)
+    console.log('content : ', content)
     const container = this.element.querySelector('.lightbox__container')
-    const loader = document.createElement('div')
-    loader.classList.add('lightbox__loader')
-    container.appendChild(loader)
-    image.onload = () => {
-      container.removeChild(loader)
-      container.appendChild(image)
+    // const loader = document.createElement('div')
+    // loader.classList.add('lightbox__loader')
+    container.innerHTML = ''
+    // container.appendChild(loader)
+    content.onload = () => {
+      // container.removeChild(loader)
+      container.appendChild(content)
       this.url = url
     }
-    image.src = url
+    content.src = url
+    console.log('url ', url)
+    console.log('content src : ', content.src)
   }
 
   /**
@@ -80,19 +91,29 @@ export default class Lightbox {
   }
 
   /**
-   * Next image
+   * Next
    * @param {MouseEvent|KeyboardEvent} e
    */
   next (e) {
     e.preventDefault()
+    let index = this.contents.findIndex(content => content === this.url)
+    if (index === this.contents.length - 1) {
+      index = -1
+    }
+    this.loadContent(this.contents[index + 1])
   }
 
   /**
-   * Previous image
+   * Previous
    * @param {MouseEvent|KeyboardEvent} e
    */
   prev (e) {
     e.preventDefault()
+    let index = this.contents.findIndex(content => content === this.url)
+    if (index === 0) {
+      index = this.contents.length
+    }
+    this.loadContent(this.contents[index - 1])
   }
 
   /**
@@ -106,14 +127,41 @@ export default class Lightbox {
     dom.innerHTML = `<button class="lightbox__close">Fermer</button>
         <button class="lightbox__next">Suivant</button>
         <button class="lightbox__prev">Précédent</button>
-        <div class="lightbox__container"></div>`
+        <div class="lightbox__container" id="lightbox"></div>`
     dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
     dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
     dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
+
+    // lightbox.addEventListener('mousedown', e => {
+    //   console.log('listener ok')
+    //   if (e.target.matches('.lightbox__container')) {
+    //     console.log('it match')
+    //     this.close()
+    //   }
+    // })
     return dom
   }
+
+  // typeOfContent (url) {
+  //   console.log(url)
+  //   let type = ''
+  //   const fileExtension = this.url.split('.').pop()
+  //   fileExtension === 'mp4' ? type = 'video' : type = 'img'
+  //   return type
+  // }
 }
 
-Lightbox.init()
+getMediaList().then(mediaList => {
+  Lightbox.init()
+  // console.log(mediaList)
+  // loadingImages(mediaList)
+})
+
+// exéc fonction anonyme immédiatement
+// permet d'utiliser l'async/await (il faut être dans une fonction pour pouvoir utiliser l'asyncro) : (()=>{})()
+// (async () => {
+//   const mediaList = await getMediaList()
+//   Lightbox.init()
+//   console.log(mediaList)
+// })()
 // console.log()
-console.log(mediaList)

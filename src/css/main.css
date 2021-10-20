@@ -616,6 +616,7 @@ textarea {
 
 .lightbox__container img {
   max-width: 100%;
+  max-height: 100vh;
   height: auto;
   -webkit-animation: lightboxIn 0.5s;
           animation: lightboxIn 0.5s;

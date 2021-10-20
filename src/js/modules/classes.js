@@ -20,56 +20,14 @@ class Media {
     this.likes = data.likes
     this.date = data.date
     this.price = data.price
-  }
-}
-
-class Lightbox {
-  constructor (medias, htmlSelector) {
-    this.medias = medias
-    this.container = htmlSelector
+    this.type = this.typeOfMedia()
   }
 
-  init () {
-    this.buildDOM(this.container)
-  }
-
-  show () {
-
-  }
-
-  close () {
-    console.log('close')
-  }
-
-  next () {
-    console.log('next')
-  }
-
-  prev () {
-    console.log('prev')
-  }
-
-  onKeyUp (e) {
-    if (e.key === 'Escape') {
-      this.close(e)
-    } else if (e.key === 'ArrowLeft') {
-      this.prev(e)
-    } else if (e.key === 'ArrowRight') {
-      this.next(e)
-    }
-  }
-
-  buildDOM (parent) {
-    const dom = document.getElementById('lightbox')
-    dom.innerHTML = `
-      <button class="lightbox__close">Fermer</button>
-      <button class="lightbox__next">Suivant</button>
-      <button class="lightbox__prev">Précédent</button>
-      <ul class="lightbox__container"></ul>
-      `
-    dom.querySelector('.lightbox__close').addEventListener('click', this.close)
-    dom.querySelector('.lightbox__next').addEventListener('click', this.next)
-    dom.querySelector('.lightbox__prev').addEventListener('click', this.prev)
-    return dom
+  typeOfContent (url) {
+    let type = ''
+    const fileExtension = url.split('.').pop()
+    fileExtension === 'mp4' ? type = 'video' : type = 'img'
+    console.log(type)
+    return type
   }
 }

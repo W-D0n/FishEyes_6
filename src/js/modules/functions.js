@@ -7,7 +7,7 @@ cardGridDiv.setAttribute('id', 'cardGrid')
 main.appendChild(cardGridDiv)
 
 // request data from API, test response and return data
-export const fnGetData = async (url) => {
+export const getData = async (url) => {
   try {
     const res = await fetch(url)
     const profilData = res.json()
@@ -18,7 +18,7 @@ export const fnGetData = async (url) => {
   }
 }
 // Creation of front page's cards presenting photographers
-export async function fnCreateHomePage (name, id, city, country, tags, tagline, price, portrait) {
+export async function createHomePage (name, id, city, country, tags, tagline, price, portrait) {
   const profilDiv = document.createElement('a')
   profilDiv.setAttribute('class', 'profil__container link')
   profilDiv.setAttribute('href', `pages/photographer.html?id=${id}&name=${name}`)
@@ -36,7 +36,7 @@ export async function fnCreateHomePage (name, id, city, country, tags, tagline, 
   createTagList(tags, id)
 }
 // Creation of photographer's presentation
-export async function fnCreatePhotographer (name, id, city, country, tags, tagline, price, portrait) {
+export async function createPhotographer (name, id, city, country, tags, tagline, price, portrait) {
   main.removeChild(cardGridDiv)
   const photographContainer = document.createElement('div')
   photographContainer.setAttribute('class', 'photograph__container')
@@ -48,13 +48,13 @@ export async function fnCreatePhotographer (name, id, city, country, tags, tagli
   // ctaContact(photographContainer)
 }
 // Creation of photographer's gallery
-export async function fnCreateGallery (mediaId, photographerId, title, content, tags, likes, date, price) {
+export async function createGallery ({ photographerId, title, content, likes }) {
   const galleryContainer = document.getElementById('galleryContainer')
   const mediaContainer = document.createElement('div')
   mediaContainer.setAttribute('class', 'media__container')
   galleryContainer.appendChild(mediaContainer)
 
-  const label = fnGetExtension(content)
+  const label = getExtension(content)
   // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
   <a href="/src/assets/media/${photographerId}/${content}" class="media__links">
@@ -98,7 +98,7 @@ const createTagList = (tags, id) => {
   })
 }
 // Get the file extension for insert it in gallery insertion
-function fnGetExtension (filePath) {
+export function getExtension (filePath) {
   let label = ''
   const fileExtension = filePath.split('.').pop()
   fileExtension === 'mp4' ? label = 'video' : label = 'img'
@@ -118,7 +118,7 @@ const toggleClassNames = (id) => {
   document.getElementById(`txt_${id}`).classList.toggle('photogr-txt__view')
 }
 // Insertion of filter button
-export async function fnCreateFilter (htmlContext) {
+export async function createFilter (htmlContext) {
   htmlContext.innerHTML = `
   <p class="select_text"> Trier par </p>
   <ul class="select">
@@ -146,40 +146,12 @@ export async function fnCreateFilter (htmlContext) {
   </ul>
   `
 }
-// remove form from display
-export async function removeForm (form) {
-  if (form.classList.contains('hidden')) {
-    form.classList.remove('hidden')
-    setTimeout(function () {
-      form.classList.remove('visuallyhidden')
-    }, 200)
-  } else {
-    form.classList.add('visuallyhidden')
-    form.addEventListener('transitionend', function (e) {
-      form.classList.add('hidden')
-    },
-    {
-      capture: false,
-      once: true,
-      passive: false
-    })
-  }
-  form.reset()
-}
+
 // Just for testing
-export function fnConsole () {
+export function Console () {
   console.log('Test OK')
 }
-// export async function getHtmlElements (media, arr) {
-//   // console.log(media)
-//   // console.log(arr)
-//   for (const target of arr) {
-//     target.addEventListener('click', e => {
-//       e.preventDefault()
-//       console.log(e.target.src)
-//     })
-//   }
-// }
+
 // export async function createLightboxMedias (mediaList, HTMLparent) {
 //   HTMLparent = document.getElementsById('lightbox__container')
 //     const newLi = document.createElement("li");

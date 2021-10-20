@@ -74,6 +74,7 @@
 }
 .lightbox__container img {
   max-width: 100%;
+  max-height: 100vh;
   height: auto;
   animation: lightboxIn .5s;
 }

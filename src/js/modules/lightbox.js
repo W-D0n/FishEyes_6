@@ -27,18 +27,16 @@ export default class Lightbox {
    * @param {string[]} images lightbox's images path
    */
   constructor (src, contents, fileExtension) {
-    console.log('contents du construct :  ', contents)
-    console.log('contents.length :  ', contents.length)
+    // console.log('contents du construct :  ', contents)
+    // console.log('contents.length :  ', contents.length)
+    this.medias = contents
     this.element = this.buildDom(src)
-    this.extension = fileExtension
+    console.log('fileExtension :  ', this.extension)
     this.currentIndex = contents.indexOf(src)
-    this.src = contents[this.currentIndex]
+    this.src = contents
     document.body.appendChild(this.element)
-    console.log(fileExtension)
-    console.log('this.src : ', this.src)
     this.media = this.render(src, this.extension)
-    // this.loadContent(src)
-    console.log('index : ', this.currentIndex)
+
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
   }
@@ -76,20 +74,27 @@ export default class Lightbox {
    * Previous / Next media
    * @param {MouseEvent|KeyboardEvent} e
    */
-  prev (e) {
+  next (e) {
     e.preventDefault()
-    // const i = this.contents.indexof(this.contents.find(content => content === this.src))
-    // console.log(i)
+    this.currentIndex++
+    if (this.currentIndex === this.medias.length) {
+      this.currentIndex = 0
+    }
+    console.log('index :  ', this.currentIndex)
+    this.render(this.src[this.currentIndex])
+    // console.log('fileExtension next :  ', this.extension)
   }
 
-  next (index, contents) {
-    index++
-    // if (this.currentIndex === this.contents.length) {
-    //   this.currentIndex = 0
-    // }
-    console.log('this.contents :  ', contents)
-    console.log(index)
-    this.render()
+  prev (e) {
+    e.preventDefault()
+    this.currentIndex--
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.medias.length - 1
+    }
+    console.log('index :  ', this.currentIndex)
+    console.log('fileExtension prev :  ', this.extension)
+    this.render(this.src[this.currentIndex])
+    console.log('fileExtension prev :  ', this.extension)
   }
 
   /**
@@ -110,14 +115,20 @@ export default class Lightbox {
     return dom
   }
 
-  render (src, ext) {
+  render (src) {
+    this.extension = src.split('.').pop()
+    console.log('fileExtension render :  ', this.extension)
     const container = document.getElementById('lightbox')
-    if (ext === 'mp4') {
-      container.insertAdjacentHTML('afterbegin', `<video class="lightbox__content" alt="osef" width="480" height="320"
+    container.innerHTML = ''
+    if (this.extension === 'mp4') {
+      console.log('houra MP4')
+      container.insertAdjacentHTML('afterbegin', `<video class="lightbox__content" alt="osef" width="640" height="480"
       autoplay controls loop muted>
         <source src="${src}" type="video/mp4">
         </video>`)
     } else {
+      // console.log('fileExtension :  ', ext)
+      console.log('osef de ton if je fout du img')
       container.insertAdjacentHTML('afterbegin', `<img class="lightbox__content" alt="osef" src="${src}"></img>`)
     }
   }

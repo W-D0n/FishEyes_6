@@ -27,12 +27,18 @@ export default class Lightbox {
    * @param {string[]} images lightbox's images path
    */
   constructor (src, contents, fileExtension) {
+    console.log('contents du construct :  ', contents)
+    console.log('contents.length :  ', contents.length)
     this.element = this.buildDom(src)
-    document.body.appendChild(this.element)
     this.extension = fileExtension
-    this.contents = this.render(src, this.extension)
+    this.currentIndex = contents.indexOf(src)
+    this.src = contents[this.currentIndex]
+    document.body.appendChild(this.element)
+    console.log(fileExtension)
+    console.log('this.src : ', this.src)
+    this.media = this.render(src, this.extension)
     // this.loadContent(src)
-    this.currentIndex = -1
+    console.log('index : ', this.currentIndex)
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
   }
@@ -67,17 +73,23 @@ export default class Lightbox {
   }
 
   /**
-   * Next
+   * Previous / Next media
    * @param {MouseEvent|KeyboardEvent} e
    */
   prev (e) {
     e.preventDefault()
-    const i = this.contents.findIndex(content => content === this.src)
+    // const i = this.contents.indexof(this.contents.find(content => content === this.src))
+    // console.log(i)
   }
 
-  next (e) {
-    e.preventDefault()
-    const i = this.contents.findIndex(content => content === this.src)
+  next (index, contents) {
+    index++
+    // if (this.currentIndex === this.contents.length) {
+    //   this.currentIndex = 0
+    // }
+    console.log('this.contents :  ', contents)
+    console.log(index)
+    this.render()
   }
 
   /**
@@ -101,11 +113,12 @@ export default class Lightbox {
   render (src, ext) {
     const container = document.getElementById('lightbox')
     if (ext === 'mp4') {
-      container.insertAdjacentHTML('afterbegin', `<video class="lightbox__conntent" alt="osef" autoplay controls loop>
+      container.insertAdjacentHTML('afterbegin', `<video class="lightbox__content" alt="osef" width="480" height="320"
+      autoplay controls loop muted>
         <source src="${src}" type="video/mp4">
         </video>`)
     } else {
-      container.insertAdjacentHTML('afterbegin', `<img class="lightbox__conntent" alt="osef" src="${src}"></img>`)
+      container.insertAdjacentHTML('afterbegin', `<img class="lightbox__content" alt="osef" src="${src}"></img>`)
     }
   }
 }

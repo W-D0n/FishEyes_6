@@ -25,7 +25,7 @@ export async function getMediaList () {
   filterContainer.setAttribute('class', 'custom-select')
   createFilter(filterContainer)
 
-  const galleryContainer = document.createElement('div')
+  const galleryContainer = document.createElement('ul')
   main.appendChild(galleryContainer)
   galleryContainer.setAttribute('class', 'gallery__container')
   galleryContainer.setAttribute('id', 'galleryContainer')

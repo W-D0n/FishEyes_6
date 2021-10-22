@@ -50,7 +50,7 @@ export async function createPhotographer (name, id, city, country, tags, tagline
 // Creation of photographer's gallery
 export async function createGallery ({ photographerId, title, content, likes }) {
   const galleryContainer = document.getElementById('galleryContainer')
-  const mediaContainer = document.createElement('div')
+  const mediaContainer = document.createElement('li')
   mediaContainer.setAttribute('class', 'media__container')
   galleryContainer.appendChild(mediaContainer)
 

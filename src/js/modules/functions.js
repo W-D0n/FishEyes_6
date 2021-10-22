@@ -57,9 +57,9 @@ export async function createGallery ({ photographerId, title, content, likes }) 
   const label = getExtension(content)
   // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
-  <a href="/src/assets/media/${photographerId}/${content}" class="media__links">
+  <!-- <a href="/src/assets/media/${photographerId}/${content}" class="media__links"> -->
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" />
-  </a>
+  <!-- </a> -->
     <div class="legend">
       <h4>${title}</h4>
       <button class="legend__likes">

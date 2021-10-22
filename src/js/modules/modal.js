@@ -1,16 +1,6 @@
 export default class Modal {
   static init () {
-    const modalBtn = document.querySelectorAll('.signup')
-    document.body.insertAdjacentHTML('beforeend', `
-          <div class="lightbox" id="lightbox" style="display: none;">
-              <div class="lightbox__inner">
-                  <button type="button" class="lightbox__close">
-                      &times;
-                  </button>
-                  <ul class="lightbox__content"></ul>
-              </div>
-          </div>
-      `)
+    const modalBtn = document.querySelectorAll('#cta-contact')
   }
 
   constructor () {
@@ -34,14 +24,39 @@ export default class Modal {
 
   buildDom () {
     const dom = document.createElement('div')
-    dom.classList.add('lightbox')
-    dom.innerHTML = `<button class="lightbox__close">Fermer</button>
-        <button class="lightbox__next">Suivant</button>
-        <button class="lightbox__prev">Précédent</button>
-        <div class="lightbox__container" id="lightbox"></div>`
-    dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
-    dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
-    dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
+    dom.classList.add('modal__container ')
+    dom.innerHTML = `
+    <button class="modal__close">Fermer</button>
+    <button class="modal__submit">Envoyer</button>
+    <div class="modal__view">
+      <div class="modal__body">
+        <form name="contact-form" action="index.html" method="POST" id="contact-form">
+          <div class="form-item">
+            <label class="item-label" for="firstName">Prénom<abbr title="Champ obligatoire"> *</abbr></label><br>                
+            <input class="text__control" type="text" id="firstName" name="firstName" /><br>
+            <p class="error__field" id="firstNameErrorField"></p>
+          </div>
+          <div class="form-item">
+            <label class="item-label" for="lastName">Nom<abbr title="Champ obligatoire"> *</abbr></label><br>
+            <input class="text__control" type="text" id="lastName" name="lastName"/><br>
+            <p class="error__field" id="lastNameErrorField"></p>
+          </div>
+          <div class="form-item">
+            <label class="item-label" for="email">E-mail<abbr title="Champ obligatoire"> *</abbr></label><br>
+            <input class="text__control" type="email" id="email" name="email"/><br>
+            <p class="error__field" id="emailErrorField"></p>
+          </div>
+          <div class="form-item">
+            <label class="item-label" for="message">Votre message<abbr title="Champ obligatoire"> *</abbr></label><br>
+            <textarea name="message" id="message"></textarea>
+            <p class="error__field" id="emailErrorField"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    `
+    dom.querySelector('.modal__close').addEventListener('click', this.close.bind(this))
+    dom.querySelector('.modal__submit').addEventListener('click', this.next.bind(this))
     return dom
   }
 }

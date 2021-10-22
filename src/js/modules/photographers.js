@@ -12,7 +12,7 @@ export async function getMediaList () {
   const mediaList = []
   const main = document.getElementById('main-content')
 
-  const { photographers, media } = data
+  const { photographers, medias } = data
   photographers.forEach(photographer => {
     const { name, id, city, country, tags, tagline, price, portrait } = photographer
 
@@ -31,7 +31,7 @@ export async function getMediaList () {
   galleryContainer.setAttribute('id', 'galleryContainer')
 
   // Creating gallery with each image/video
-  media.forEach(element => {
+  medias.forEach(element => {
     if (element.photographerId === urlId) {
       createGallery(element)
       mediaList.push(element)
@@ -40,7 +40,7 @@ export async function getMediaList () {
 
   return mediaList
 }
-
+// console.log(getMediaList())
 // Lightbox.init()
 // lightbox = new Lightbox('#lightbox-modal', photographerMedias)
 // si besoin de l'id ou du tag : on va utiliser le " ?? "

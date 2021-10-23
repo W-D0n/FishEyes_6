@@ -58,7 +58,7 @@ export async function createGallery ({ photographerId, title, content, likes }) 
   // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
   <!-- <a href="/src/assets/media/${photographerId}/${content}" class="media__links"> -->
-    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" />
+    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" /></${label}>
   <!-- </a> -->
     <div class="legend">
       <h4>${title}</h4>
@@ -76,7 +76,7 @@ const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, p
     <img src="/src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
   </div>
   <div class="profil__description" id="profil_${id}">
-    <button class="cta-contact" id="cta-contact">Contactez-moi</button>
+    <button class="cta-contact cta-btn" id="cta-contact">Contactez-moi</button>
     <h2 class="profil__name al-c" id="name_${id}">${name}</h2>
     <div class="profil__info al-c" id="info_${id}">
       <h3 class="location al-c" id="location_${id}">${country}, <span>${city}</span></h3>
@@ -121,7 +121,68 @@ const toggleClassNames = (id) => {
 export async function createFilter (htmlContext) {
   htmlContext.innerHTML = `
   <p class="select_text"> Trier par </p>
-  <ul class="select">
+  <div class="custom-select cta-btn">
+    <select class="select-list">
+      <option value="like" selected>Popularité</option>
+      <option value="date">Date</option>
+      <option value="title">Titre</option>
+    </select>
+  </div>
+  `
+}
+
+// Just for testing
+export function sortMedias (btn, medias) {
+  switch (btn) {
+    case 'like':
+      console.log('Case LIKE')
+      break
+    case 'date':
+      console.log('Case DATE')
+      break
+    case 'title':
+      console.log(medias.sort(byTitle))
+      break
+    default:
+      console.log(`Sorry, we are out of ${btn}.`)
+  }
+  // console.log('Medias : ', medias)
+}
+
+function byTitle (a, b) {
+  // alphabetically by name
+  if (a.title > b.title) {
+    return 1
+  } else if (b.title > a.title) {
+    return -1
+  } else {
+    return 0
+  }
+}
+
+// byLike (){}
+// byDate (){}
+
+// export async function createLightboxMedias (mediaList, HTMLparent) {
+//   HTMLparent = document.getElementsById('lightbox__container')
+//     const newLi = document.createElement("li");
+//   if (!tags sélectionné ===  media.tags) {
+//     afficher tous les medias
+//     newLi.innerHTML = `<img src="${media.src}">`;
+//     newLi.onclick = () => {lightbox.show(index);};
+//     mediasList.appendChild(li);
+//   } else {
+//     afficher medias avec media.tags === tags sélectionné
+//   }
+// }
+//
+// IL FAUT FAIRE UN TRI SUR : LIKES OR DATE PAR TITRE
+// utiliser sort() sur un array
+// if la checkbox de l'input est sélectionné alors checked = true
+// if true sort() array sur la propriété like(number)/date(object date)/titre(ordre alpha)
+// push le résultat dans un array pour l'afficher
+
+/* <ul class="select">
     <li>
       <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
       <span class="select_label select_label-placeholder">Popularité</span>
@@ -143,30 +204,4 @@ export async function createFilter (htmlContext) {
 
       <label class="select_expandLabel" for="customselect-opener"></label>
     </li>
-  </ul>
-  `
-}
-
-// Just for testing
-export function Console () {
-  console.log('Test OK')
-}
-
-// export async function createLightboxMedias (mediaList, HTMLparent) {
-//   HTMLparent = document.getElementsById('lightbox__container')
-//     const newLi = document.createElement("li");
-//   if (!tags sélectionné ===  media.tags) {
-//     afficher tous les medias
-//     newLi.innerHTML = `<img src="${media.src}">`;
-//     newLi.onclick = () => {lightbox.show(index);};
-//     mediasList.appendChild(li);
-//   } else {
-//     afficher medias avec media.tags === tags sélectionné
-//   }
-// }
-//
-// IL FAUT FAIRE UN TRI SUR : LIKES OR DATE PAR TITRE
-// utiliser sort() sur un array
-// if la checkbox de l'input est sélectionné alors checked = true
-// if true sort() array sur la propriété like(number)/date(object date)/titre(ordre alpha)
-// push le résultat dans un array pour l'afficher
+  </ul> */

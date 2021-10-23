@@ -1,4 +1,5 @@
-import { getData, createPhotographer, createGallery, createFilter } from './functions.js'
+import { getData, createPhotographer, createGallery, createFilter, sortMedias } from './functions.js'
+// eslint-disable-next-line no-unused-vars
 import Lightbox from './lightbox.js'
 
 // Une fois les médias triés avec le bouton de sélection
@@ -22,7 +23,7 @@ export async function getMediaList () {
   })
   const filterContainer = document.createElement('div')
   main.appendChild(filterContainer)
-  filterContainer.setAttribute('class', 'custom-select')
+  filterContainer.setAttribute('class', 'nav-select')
   createFilter(filterContainer)
 
   const galleryContainer = document.createElement('ul')
@@ -30,21 +31,25 @@ export async function getMediaList () {
   galleryContainer.setAttribute('class', 'gallery__container')
   galleryContainer.setAttribute('id', 'galleryContainer')
 
-  // Creating gallery with each image/video
+  // Fill mediaList array with media of url ID photographer
   medias.forEach(element => {
     if (element.photographerId === urlId) {
-      createGallery(element)
+      // createGallery(element)
       mediaList.push(element)
     }
   })
 
+  // Sorted medias
+  const sortBtn = document.querySelectorAll('.select-list')
+  const selected = document.querySelector('.select-list')
+  sortBtn.forEach(btn => btn.addEventListener('change', e => {
+    e.preventDefault()
+    // console.log('Medias : ', medias)
+    sortMedias(selected.value, mediaList)
+    // return sortMedias(selected.value, medias)
+    // console.log(selected.value)
+  }))
+  console.log(mediaList)
   return mediaList
 }
-// console.log(getMediaList())
-// Lightbox.init()
-// lightbox = new Lightbox('#lightbox-modal', photographerMedias)
-// si besoin de l'id ou du tag : on va utiliser le " ?? "
-// fonction filtrer par id ou tag (id, tag) {
-// if id = null/undefined {filtrer par  tag}
-// else {filtrer par id}
-// }
+// select_expandLabel

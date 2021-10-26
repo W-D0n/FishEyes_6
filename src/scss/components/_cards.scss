@@ -1,4 +1,4 @@
-@use '../abstracts' as abs;
+@use '../abstracts/typo' as typo;
 @use '../abstracts/colors' as clr;
 @use '../utils' as ut;
 
@@ -31,17 +31,17 @@
 	margin-top: 2rem;
 }
 .profil__name{
-  @include abs.names-font;
+  @include typo.names-font;
   color: clr.$font-secondary;
 }
 .profil__name.photogr-name__view{
 	font-size: 3rem;
 }
 .location {
-	@include abs.location-font;
+	@include typo.location-font;
 }
 .description__price{
-	@include abs.price-font;
+	@include typo.price-font;
 	margin-block: 0.4rem;
 }
 .profil__tag-list{
@@ -50,11 +50,11 @@
 	flex-wrap: wrap;
 }
 .tag-item {
-	@include abs.tags-font;
+	@include typo.tags-font;
 	box-sizing: border-box;
 	margin-right: 0.4rem;
 	padding: 0.22rem;
-	border: 0.5px solid abs.$shadow;
+	border: 0.5px solid clr.$shadow;
 	border-radius: 11px;
 	&:hover {
 		transition: all 100ms ease-in-out;

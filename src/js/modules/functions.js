@@ -51,11 +51,10 @@ export async function createPhotographer (name, id, city, country, tags, tagline
 export async function createGallery ({ photographerId, title, content, likes }) {
   const galleryContainer = document.getElementById('galleryContainer')
   const mediaContainer = document.createElement('li')
+
   mediaContainer.setAttribute('class', 'media__container')
   galleryContainer.appendChild(mediaContainer)
-
   const label = getExtension(content)
-  // à l'origine <a href="/src/assets/media/${photographerId}/${content}">
   mediaContainer.innerHTML = `
   <!-- <a href="/src/assets/media/${photographerId}/${content}" class="media__links"> -->
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" /></${label}>
@@ -122,33 +121,31 @@ export async function createFilter (htmlContext) {
   htmlContext.innerHTML = `
   <p class="select_text"> Trier par </p>
   <div class="custom-select cta-btn">
-    <select class="select-list">
-      <option value="like" selected>Popularité</option>
-      <option value="date">Date</option>
-      <option value="title">Titre</option>
+    <select role="listbox" class="select-list" aria-label="sorting options list">
+      <option role="option" class="select-opt cta-btn" value="like" selected>Popularité</option>
+      <option role="option" class="select-opt cta-btn" value="date">Date</option>
+      <option role="option" class="select-opt cta-btn" value="title">Titre</option>
     </select>
   </div>
   `
 }
-
 // Just for testing
-export function sortMedias (btn, medias) {
-  switch (btn) {
+export function sortMedias (value, medias) {
+  switch (value) {
     case 'like':
-      console.log('Case LIKE')
-      break
+      // console.log('Sort by Like : ', medias.sort(byLike))
+      return medias.sort(byLike)
     case 'date':
-      console.log('Case DATE')
-      break
+      // console.log('Sort by Date : ', medias.sort(byDate))
+      return medias.sort(byDate)
     case 'title':
-      console.log(medias.sort(byTitle))
-      break
-    default:
-      console.log(`Sorry, we are out of ${btn}.`)
+      // console.log('Sort by Title : ', medias.sort(byTitle))
+      return medias.sort(byTitle)
+    default : return medias.sort(byTitle)
   }
-  // console.log('Medias : ', medias)
+  // console.log('mediaList : ', mediaList)
 }
-
+// byTitle, byDate, byLike : Custom sort functions
 function byTitle (a, b) {
   // alphabetically by name
   if (a.title > b.title) {
@@ -159,49 +156,11 @@ function byTitle (a, b) {
     return 0
   }
 }
-
-// byLike (){}
-// byDate (){}
-
-// export async function createLightboxMedias (mediaList, HTMLparent) {
-//   HTMLparent = document.getElementsById('lightbox__container')
-//     const newLi = document.createElement("li");
-//   if (!tags sélectionné ===  media.tags) {
-//     afficher tous les medias
-//     newLi.innerHTML = `<img src="${media.src}">`;
-//     newLi.onclick = () => {lightbox.show(index);};
-//     mediasList.appendChild(li);
-//   } else {
-//     afficher medias avec media.tags === tags sélectionné
-//   }
-// }
-//
-// IL FAUT FAIRE UN TRI SUR : LIKES OR DATE PAR TITRE
-// utiliser sort() sur un array
-// if la checkbox de l'input est sélectionné alors checked = true
-// if true sort() array sur la propriété like(number)/date(object date)/titre(ordre alpha)
-// push le résultat dans un array pour l'afficher
-
-/* <ul class="select">
-    <li>
-      <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
-      <span class="select_label select_label-placeholder">Popularité</span>
-    </li>
-    <li class="select_items">
-      <input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
-      <label class="select_closeLabel" for="customselect-close"></label>
-
-      <ul class="select_options">
-        <li class="select_option">
-          <input class="select_input" type="radio" name="customselect" id="customselect-date" />
-          <label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
-        </li>
-        <li class="select_option">
-          <input class="select_input" type="radio" name="customselect" id="customselect-titre" />
-          <label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
-        </li>
-      </ul>
-
-      <label class="select_expandLabel" for="customselect-opener"></label>
-    </li>
-  </ul> */
+function byDate (a, b) {
+  const d1 = new Date(a.date)
+  const d2 = new Date(b.date)
+  return d2 - d1
+}
+function byLike (a, b) {
+  return parseInt(b.likes) - parseInt(a.likes)
+}

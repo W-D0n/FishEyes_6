@@ -1,5 +1,6 @@
-  @use '../abstracts/colors' as clr;
+@use '../abstracts/colors' as clr;
 @use '../utils/variables' as v;
+
 @mixin font-base {
   font-family: DM Sans;
   font-style: normal;

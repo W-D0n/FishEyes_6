@@ -19,9 +19,11 @@ header {
   align-items: center;
 }
 .nav__heading {
+  justify-self: end;
+  align-self: center;
   margin: initial;
   font-family: DM Sans;
   text-align: center;
-  font-size: clamp(0.8rem, 2vw, 2.1rem);
+  font-size: clamp(0.8rem, 2.5vw, 3vw);
   color: clr.$font-primary;
 }

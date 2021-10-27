@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { getData, createPhotographer, createGallery, createFilter, sortMedias } from './functions.js'
+import { getData, createPhotographer, createGallery, createFilter, addContactBtn, sortMedias } from './functions.js'
 import Lightbox from './lightbox.js'
 import Modal from './modal.js'
 
@@ -16,17 +16,19 @@ export async function getMediaList () {
 
   const { photographers, medias } = data
   photographers.forEach(photographer => {
-    const { name, id, city, country, tags, tagline, price, portrait } = photographer
+    const { id } = photographer
 
     if (id === urlId) {
-      createPhotographer(name, id, city, country, tags, tagline, price, portrait)
+      createPhotographer(photographer)
       currentPhotographer = photographer.name
       currentPrice = photographer.price
     }
   })
-  const filterContainer = document.createElement('div')
+  // Add contact cta button
+  addContactBtn()
+  const filterContainer = document.createElement('nav')
   main.appendChild(filterContainer)
-  filterContainer.setAttribute('class', 'nav-select')
+  filterContainer.setAttribute('class', 'navbar-select')
   createFilter(filterContainer)
 
   const galleryContainer = document.createElement('ul')
@@ -63,10 +65,10 @@ export async function getMediaList () {
   // Sum of likes for this photographer
   const numberOfLikes = mediaList.reduce((sum, object) => sum + object.likes, 0)
   console.log(numberOfLikes)
+  console.log(currentPrice)
+  // Stiky bottom info
 
   // Create Modal
-  console.log(currentPhotographer)
-  console.log(currentPrice)
   const contactCta = document.querySelector('#cta-contact')
   // eslint-disable-next-line no-new
   contactCta.addEventListener('click', e => { new Modal(currentPhotographer) })

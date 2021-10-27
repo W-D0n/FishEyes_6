@@ -44,7 +44,8 @@
 	@include typo.price-font;
 	margin-block: 0.4rem;
 }
-.profil__tag-list{
+.profil__tag-list {
+	justify-content: center;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -56,6 +57,7 @@
 	padding: 0.22rem;
 	border: 0.5px solid clr.$shadow;
 	border-radius: 11px;
+	cursor: pointer;
 	&:hover {
 		transition: all 100ms ease-in-out;
 		background-color: clr.$bg-primary;
@@ -65,7 +67,7 @@
 
 // Photographer page cards
 .photograph__container {
-	// position: relative;
+	position: relative;
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;

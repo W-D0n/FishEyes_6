@@ -1,6 +1,7 @@
 @use '../abstracts/typo' as typo;
 @use "../abstracts/colors" as clr;
 
+// Contact Modal
 .modal__container {
   display: flex;
   justify-content: center;
@@ -23,7 +24,7 @@
 .modal__view{
   position: relative;
   background-color: clr.$bg-secondary;
-  width: 50vw;
+  width: 40vw;
   height: 80vh;
   padding: 2rem;
   border-radius: 5px;

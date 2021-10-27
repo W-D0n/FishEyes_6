@@ -18,7 +18,7 @@ export const getData = async (url) => {
   }
 }
 // Creation of front page's cards presenting photographers
-export async function createHomePage (name, id, city, country, tags, tagline, price, portrait) {
+export async function createHomePage ({ name, id, city, country, tags, tagline, price, portrait }) {
   const profilDiv = document.createElement('a')
   profilDiv.setAttribute('class', 'profil__container link')
   profilDiv.setAttribute('href', `pages/photographer.html?id=${id}&name=${name}`)
@@ -33,10 +33,10 @@ export async function createHomePage (name, id, city, country, tags, tagline, pr
   desc.appendChild(descPrice)
   descPrice.innerHTML = `${price}<span>€</span>/jour`
 
-  createTagList(tags, id)
+  createTagList({ tags, id })
 }
 // Creation of photographer's presentation
-export async function createPhotographer (name, id, city, country, tags, tagline, price, portrait) {
+export async function createPhotographer ({ name, id, city, country, tags, tagline, price, portrait }) {
   main.removeChild(cardGridDiv)
   const photographContainer = document.createElement('div')
   photographContainer.setAttribute('class', 'photograph__container')
@@ -44,7 +44,7 @@ export async function createPhotographer (name, id, city, country, tags, tagline
 
   insertHtml(photographContainer, name, id, city, country, tags, tagline, price, portrait)
   toggleClassNames(id) // To remove align center class
-  createTagList(tags, id)
+  createTagList({ tags, id })
   // ctaContact(photographContainer)
 }
 // Creation of photographer's gallery
@@ -74,8 +74,7 @@ const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, p
   <div class="profil__img__container">
     <img src="/src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
   </div>
-  <div class="profil__description" id="profil_${id}">
-    <button class="cta-contact cta-btn" id="cta-contact">Contactez-moi</button>
+  <div class="profil__description" id="profil_${id}">    
     <h2 class="profil__name al-c" id="name_${id}">${name}</h2>
     <div class="profil__info al-c" id="info_${id}">
       <h3 class="location al-c" id="location_${id}">${country}, <span>${city}</span></h3>
@@ -85,8 +84,16 @@ const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, p
   </div>
 `
 }
-const createTagList = (tags, id) => {
-  // Creation of tags list of each photographers
+export function addContactBtn () {
+  const ctnr = document.querySelector('.photograph__container')
+  const contactBtn = document.createElement('button')
+  contactBtn.setAttribute('class', 'cta-contact cta-btn')
+  contactBtn.setAttribute('id', 'cta-contact')
+  contactBtn.innerText = 'Contactez-moi'
+  ctnr.appendChild(contactBtn)
+}
+// Creation of tags list of each photographers
+const createTagList = ({ tags, id }) => {
   const newTagList = document.getElementById(`tagList_${id}`)
 
   tags.forEach(tag => {

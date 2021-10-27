@@ -4,3 +4,8 @@ $card-radius : 25px;
 $ft-w-max: 900;
 $ft-w-middle: 700;
 $ft-w-normal: 400;
+
+$breakpoints: (
+  desktop: 64em, // equal to 1024px
+  mobile: 26.5em // equal to 425px
+);

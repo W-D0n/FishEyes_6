@@ -5,24 +5,14 @@ const apiUrl = '/src/assets/data/FishEyeData.json'
 
 getData(apiUrl)
   .then((data) => {
-    // const imgPath = '/src/assets/'
+    // Display each photographer profil's
     const { photographers } = data
     photographers.forEach(el => {
-      const { name, id, city, country, tags, tagline, price, portrait } = el
-      createHomePage(name, id, city, country, tags, tagline, price, portrait)
+      createHomePage(el)
     })
     return data
   })
   .then((data) => {
-    // const tagList = []
-    // get a list of tag from tags arrays in photographers arrays
-    // const tags = data.photographers.flatMap(({ tags = [] }) => tags)
-    // tags.forEach(tag => {
-    //   //  include only one occurence of tag items
-    //   if (!tagList.includes(tag)) {
-    //     tagList.push(tag)
-    //   }
-    // })
     const tagList = [...new Set(data.photographers.map(p => p.tags ?? []).flat())]
 
     const navTagList = document.getElementById('tag__list')
@@ -31,6 +21,21 @@ getData(apiUrl)
       newNavTagItem.setAttribute('class', 'tag-item')
       navTagList.appendChild(newNavTagItem)
       newNavTagItem.innerHTML = `#${tag}`
+
+      // Sorting photographer profil's by tags
+      newNavTagItem.addEventListener('click', e => {
+        const ctnr = document.querySelector('.card__grid')
+        ctnr.innerHTML = ''
+
+        const { photographers } = data
+        photographers.forEach(el => {
+          const { tags } = el
+          const currentTagIsInclude = tags.includes(tag)
+          if (currentTagIsInclude) {
+            createHomePage(el)
+          }
+        })
+      })
     })
   })
   .catch((err) => {

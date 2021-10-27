@@ -15,9 +15,8 @@
 // Cta CONTACT
 .cta-contact{
     position: absolute;
-    right: -12rem;
-    // left: 18rem;
-    // top: 1.5rem;
+    left: 26rem;
+    top: 2rem;
     text-align: center;
     vertical-align: sub;
     &:hover {
@@ -28,7 +27,7 @@
 }
 // Filter button of photographers page
 
-.nav-select{
+.navbar-select{
   display: flex;
   flex-direction: row;
   align-items: center;

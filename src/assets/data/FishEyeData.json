@@ -70,7 +70,8 @@
       "tags": ["fashion"],
       "likes": 62,
       "date": "2011-12-08",
-      "price": 55
+      "price": 55,
+      "alt":"Woman dressed in yellow near to a basket"
     },
     {
       "mediaId": 8520927,
@@ -80,7 +81,8 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2011-11-06",
-      "price": 55
+      "price": 55,
+      "alt":"Fashion woman crouching on a bridge"
     },
     {
       "mediaId": 9025895,
@@ -90,7 +92,8 @@
       "tags": ["fashion"],
       "likes": 72,
       "date": "2013-08-12",
-      "price": 55
+      "price": 55,
+      "alt":"Fashion woman wearing pattern dress in front of pattern wall"
     },
     {
       "mediaId": 9275938,
@@ -100,7 +103,8 @@
       "tags": ["events"],
       "likes": 69,
       "date": "2018-02-22",
-      "price": 55
+      "price": 55,
+      "alt":"Wedding scene gazebo in a garden"
     },
     {
       "mediaId": 2053494,
@@ -110,7 +114,8 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2020-05-25",
-      "price": 55
+      "price": 55,
+      "alt":"party scene with sparkle lights"
     },
     {
       "mediaId": 7324238,
@@ -120,7 +125,8 @@
       "tags": ["events"],
       "likes": 33,
       "date": "2019-06-12",
-      "price": 55
+      "price": 55,
+      "alt":"18th anniversary party hall"
     },
     {
       "mediaId": 8328953,
@@ -130,7 +136,8 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2011-12-08",
-      "price": 100
+      "price": 100,
+      "alt":"Wooden Horse head Sculpture video"
     },
     {
       "mediaId": 7502053,
@@ -140,7 +147,8 @@
       "tags": ["art"],
       "likes": 88,
       "date": "2007-05-07",
-      "price": 55
+      "price": 55,
+      "alt":"Door painted with a man and a trianlge"
     },
     {
       "mediaId": 8523492,
@@ -150,7 +158,8 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2018-05-05",
-      "price": 55
+      "price": 55,
+      "alt":"Pruple lighted tunnel with grafitis on walls"
     },
     {
       "mediaId": 75902334,
@@ -160,7 +169,8 @@
       "tags": ["art"],
       "likes": 75,
       "date": "2019-11-25",
-      "price": 55
+      "price": 55,
+      "alt":"Chicken heads pattern painted in blue and red"
     },
     {
       "mediaId": 73852953,
@@ -170,7 +180,8 @@
       "tags": ["sport"],
       "likes": 52,
       "date": "2013-02-30",
-      "price": 70
+      "price": 70,
+      "alt":"men making rowing"
     },
     {
       "mediaId": 92758372,
@@ -180,7 +191,8 @@
       "tags": ["fashion"],
       "likes": 58,
       "date": "2018-07-17",
-      "price": 70
+      "price": 70,
+      "alt":"black woman and white man figuring wings here arms"
     },
     {
       "mediaId": 32958383,
@@ -190,7 +202,8 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2019-08-12",
-      "price": 70
+      "price": 70,
+      "alt":"woman wearing red dress going down stairs"
     },
     {
       "mediaId": 928587383,
@@ -200,7 +213,8 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2019-01-02",
-      "price": 70
+      "price": 70,
+      "alt":"womand making a product pitch during a meeting"
     },
     {
       "mediaId": 725639493,
@@ -210,7 +224,8 @@
       "tags": ["events"],
       "likes": 3,
       "date": "2019-05-20",
-      "price": 70
+      "price": 70,
+      "alt":"man making a product presentation during a meeting"
     },
     {
       "mediaId": 23394384,
@@ -220,7 +235,8 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-07-18",
-      "price": 70
+      "price": 70,
+      "alt":"woman with music keyboard"
     },
     {
       "mediaId": 87367293,
@@ -230,7 +246,8 @@
       "tags": ["events"],
       "likes": 23,
       "date": "2018-02-22",
-      "price": 70
+      "price": 70,
+      "alt":"woman singing with a microphone"
     },
     {
       "mediaId": 593834784,
@@ -240,7 +257,8 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2017-03-13",
-      "price": 70
+      "price": 70,
+      "alt":"deer standing with majesty"
     },
     {
       "mediaId": 83958935,
@@ -250,7 +268,8 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2016-06-12",
-      "price": 70
+      "price": 70,
+      "alt":"video of cute puppy playing with his leash on beach sunset"
     },
     {
       "mediaId": 394583434,
@@ -260,7 +279,8 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "alt":"Rock Mountains landscape"
     },
     {
       "mediaId": 343423425,
@@ -270,7 +290,8 @@
       "tags": ["travel"],
       "likes": 101,
       "date": "2017-04-03",
-      "price": 45
+      "price": 45,
+      "alt":"People in a warm lake"
     },
     {
       "mediaId": 73434243,
@@ -280,7 +301,8 @@
       "tags": ["travel"],
       "likes": 99,
       "date": "2018-04-30",
-      "price": 45
+      "price": 45,
+      "alt":"road though a hill"
     },
     {
       "mediaId": 23425523,
@@ -290,7 +312,8 @@
       "tags": ["travel"],
       "likes": 34,
       "date": "2016-04-05",
-      "price": 45
+      "price": 45,
+      "alt":"bridge into the Forest"
     },
     {
       "mediaId": 23134513,
@@ -300,7 +323,8 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "alt":"boat on a lake in middle of montains"
     },
     {
       "mediaId": 92352352,
@@ -310,7 +334,8 @@
       "tags": ["portrait"],
       "likes": 66,
       "date": "2018-05-24",
-      "price": 45
+      "price": 45,
+      "alt":"portrait of a smyling woman"
     },
     {
       "mediaId": 34513453,
@@ -320,7 +345,8 @@
       "tags": ["portrait"],
       "likes": 52,
       "date": "2017-04-21",
-      "price": 45
+      "price": 45,
+      "alt":"black and white portrait of a man"
     },
     {
       "mediaId": 23523533,
@@ -330,7 +356,8 @@
       "tags": ["portrait"],
       "likes": 95,
       "date": "2018-11-02",
-      "price": 45
+      "price": 45,
+      "alt":"black and white portrait of a black woman with white hairs and white t-shirt"
     },
     {
       "mediaId": 525834234,
@@ -340,7 +367,8 @@
       "tags": ["portrait"],
       "likes": 25,
       "date": "2019-01-02",
-      "price": 45
+      "price": 45,
+      "alt":"black and white portrait of a smoking old man"
     },
     {
       "mediaId": 623534343,
@@ -350,7 +378,8 @@
       "tags": ["travel"],
       "likes": 88,
       "date": "2019-02-03",
-      "price": 45
+      "price": 45,
+      "alt":"deep landscape with a lonely person"
     },
     {
       "mediaId": 625025343,
@@ -360,7 +389,8 @@
       "tags": ["travel"],
       "likes": 85,
       "date": "2019-04-03",
-      "price": 45
+      "price": 45,
+      "alt":"hillside town with colored houses"
     },
     {
       "mediaId": 2525345343,
@@ -370,7 +400,8 @@
       "tags": ["portrait"],
       "likes": 34,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "alt":"black and white portrait of a child who's playing with her face"
     },
     {
       "mediaId": 2523434634,
@@ -380,7 +411,8 @@
       "tags": ["portrait"],
       "likes": 63,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "alt":"portrait of woman wearing glasses"
     },
     {
       "mediaId": 398847109,
@@ -390,7 +422,8 @@
       "tags": ["portrait"],
       "likes": 55,
       "date": "2019-06-20",
-      "price": 45
+      "price": 45,
+      "alt":"black and white portrait of a woman"
     },
     {
       "mediaId": 2534342,
@@ -400,7 +433,8 @@
       "tags": ["events"],
       "likes": 25,
       "date": "2019-06-21",
-      "price": 45
+      "price": 45,
+      "alt":"wedding table on beach"
     },
     {
       "mediaId": 65235234,
@@ -410,7 +444,8 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-06-25",
-      "price": 45
+      "price": 45,
+      "alt":"wedding couple face to face in nature"
     },
     {
       "mediaId": 23523434,
@@ -420,7 +455,8 @@
       "tags": ["events"],
       "likes": 77,
       "date": "2019-06-28",
-      "price": 45
+      "price": 45,
+      "alt":"wedding couple"
     },
     {
       "mediaId": 5234343,
@@ -430,7 +466,8 @@
       "tags": ["animals"],
       "likes": 142,
       "date": "2019-08-23",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 95234343,
@@ -440,7 +477,8 @@
       "tags": ["animals"],
       "likes": 59,
       "date": "2019-07-02",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 52343416,
@@ -450,17 +488,19 @@
       "tags": ["travel"],
       "likes": 25,
       "date": "2019-04-03",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 2523434,
       "photographerId": 195,
-      "title": "Senset on Canals, Venice",
+      "title": "Sunset on Canals, Venice",
       "content": "Travel_SunsetonCanals.jpg",
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-05-06",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 95293534,
@@ -470,7 +510,8 @@
       "tags": ["travel"],
       "likes": 33,
       "date": "2019-05-12",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 356234343,
@@ -480,7 +521,8 @@
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-06-20",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 235234343,
@@ -490,7 +532,8 @@
       "tags": ["travel"],
       "likes": 63,
       "date": "2019-06-26",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 6234234343,
@@ -500,7 +543,8 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2019-06-30",
-      "price": 60
+      "price": 60,
+      "alt":"stylish top of buildings"
     },
     {
       "mediaId": 6525666253,
@@ -510,7 +554,8 @@
       "tags": ["architecture"],
       "likes": 63,
       "date": "2019-07-20",
-      "price": 60
+      "price": 60,
+      "alt":"hillside town in Tibet"
     },
     {
       "mediaId": 98252523433,
@@ -520,7 +565,8 @@
       "tags": ["architecture"],
       "likes": 88,
       "date": "2020-01-05",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 9259398453,
@@ -530,7 +576,8 @@
       "tags": ["architecture"],
       "likes": 57,
       "date": "2020-01-20",
-      "price": 65
+      "price": 65,
+      "alt":"Circle Highways video"
     },
     {
       "mediaId": 3523523534,
@@ -540,7 +587,8 @@
       "tags": ["architecture"],
       "likes": 54,
       "date": "2020-05-05",
-      "price": 60
+      "price": 60,
+      "alt":""
     },
     {
       "mediaId": 952343423,
@@ -550,7 +598,8 @@
       "tags": ["sport"],
       "likes": 150,
       "date": "2018-02-30",
-      "price": 70
+      "price": 70,
+      "alt":"woman doing tricks hanged in air"
     },
     {
       "mediaId": 235234343,
@@ -560,7 +609,8 @@
       "tags": ["sport"],
       "likes": 101,
       "date": "2018-03-05",
-      "price": 65
+      "price": 65,
+      "alt":""
     },
     {
       "mediaId": 235343222,
@@ -570,7 +620,8 @@
       "tags": ["sport"],
       "likes": 103,
       "date": "2018-03-10",
-      "price": 70
+      "price": 70,
+      "alt":"surfer inside a tube"
     },
     {
       "mediaId": 7775342343,
@@ -580,7 +631,8 @@
       "tags": ["sport"],
       "likes": 77,
       "date": "2018-04-16",
-      "price": 50
+      "price": 50,
+      "alt":"skier doing tricks during a jump"
     },
     {
       "mediaId": 9253445784,
@@ -590,7 +642,8 @@
       "tags": ["sport"],
       "likes": 88,
       "date": "2018-04-22",
-      "price": 65
+      "price": 65,
+      "alt":"women runners during a athletic race"
     },
     {
       "mediaId": 22299394,
@@ -600,7 +653,8 @@
       "tags": ["sport"],
       "likes": 95,
       "date": "2018-04-27",
-      "price": 70
+      "price": 70,
+      "alt":"man doing tricks with skateboard"
     },
     {
       "mediaId": 3452342633,
@@ -610,7 +664,8 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2018-05-03",
-      "price": 75
+      "price": 75,
+      "alt":"MOMA museum roof lighting up"
     },
     {
       "mediaId": 939234243,
@@ -620,7 +675,8 @@
       "tags": ["architecture"],
       "likes": 55,
       "date": "2018-05-10",
-      "price": 72
+      "price": 72,
+      "alt":""
     },
     {
       "mediaId": 222959233,
@@ -630,7 +686,8 @@
       "tags": ["architecture"],
       "likes": 85,
       "date": "2018-05-15",
-      "price": 71
+      "price": 71,
+      "alt":"building with horseshoe shape when seen from downside"
     },
     {
       "mediaId": 965933434,
@@ -640,7 +697,8 @@
       "tags": ["architecture"],
       "likes": 66,
       "date": "2018-05-20",
-      "price": 58
+      "price": 58,
+      "alt":"building with cross shape when seen from downside"
     },
     {
       "mediaId": 777723343,
@@ -650,7 +708,8 @@
       "tags": ["architecture"],
       "likes": 79,
       "date": "2018-05-21",
-      "price": 80
+      "price": 80,
+      "alt":"building with connected Curves shape when seen from downside"
     }
   ]
 }

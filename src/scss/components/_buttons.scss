@@ -1,6 +1,7 @@
 @use "../utils/variables" as v;
 @use "../abstracts/colors" as clr;
 .cta-btn {
+  text-align: center;
   width: 9.45rem;
   height: 4rem;
   background-color: clr.$bg-primary;
@@ -10,14 +11,20 @@
 }
 
 .scroll-to-top {
+  display: none;
   position: fixed;
+  height: 2rem;
+  top:-1rem;
+  right: 50%;
+  transform: translate(50%,-50%);
+  background-color: clr.$bg-primary;
+  color: clr.$font-neutral;
 }
 // Cta CONTACT
 .cta-contact{
     position: absolute;
     left: 26rem;
     top: 2rem;
-    text-align: center;
     vertical-align: sub;
     &:hover {
         transition: all 100ms ease-in-out;
@@ -52,10 +59,6 @@
   text-align: center;
   align-items: center;
 }
-// .select-list > .select-opt {
-//   background-color: clr.$bg-primary;
-//   color: clr.$font-neutral;
-// }
 
 /*style the arrow inside the select element:*/
 .select-selected:after {

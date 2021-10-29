@@ -48,7 +48,7 @@ export async function createPhotographer ({ name, id, city, country, tags, tagli
   // ctaContact(photographContainer)
 }
 // Creation of photographer's gallery
-export async function createGallery ({ photographerId, title, content, likes }) {
+export async function createGallery ({ photographerId, title, content, likes, alt }) {
   const galleryContainer = document.getElementById('galleryContainer')
   const mediaContainer = document.createElement('li')
 
@@ -56,12 +56,10 @@ export async function createGallery ({ photographerId, title, content, likes }) 
   galleryContainer.appendChild(mediaContainer)
   const label = getExtension(content)
   mediaContainer.innerHTML = `
-  <!-- <a href="/src/assets/media/${photographerId}/${content}" class="media__links"> -->
-    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="Content named : ${title}" /></${label}>
-  <!-- </a> -->
+    <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="${alt}" title="${title}" /></${label}>
     <div class="legend">
       <h4>${title}</h4>
-      <button class="legend__likes">
+      <button class="legend__likes" aria-label="add a like">
         <span class="likes__counter">${likes}</span>
         <span class="fas fa-heart likes__icon"></span>
       </button>

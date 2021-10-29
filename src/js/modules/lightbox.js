@@ -1,6 +1,6 @@
 import { getMediaList } from './photographers.js'
 
-getMediaList().then(mediaList => { Lightbox.init() })
+getMediaList().then(mediaList => { Lightbox.init(mediaList) })
 
 /**
  * @property {HTMLElement} element
@@ -8,31 +8,58 @@ getMediaList().then(mediaList => { Lightbox.init() })
  * @property {string} url currently displayed content
  */
 export default class Lightbox {
-  static init () {
+  static init (mediaList) {
     const links = Array.from(document.getElementsByClassName('media__content'))
     const gallery = links.map(link => link.getAttribute('src'))
+
     links.forEach(link => link.addEventListener('click', e => {
       e.preventDefault()
-      const fileExtension = link.src.split('.').pop()
       // eslint-disable-next-line no-new
-      new Lightbox(e.currentTarget.getAttribute('src'), gallery, fileExtension)
+      new Lightbox(e.currentTarget.getAttribute('src'), gallery, mediaList)
     }))
   }
 
   /**
    * @param {string} url content's URL
+   * @param {string} gallery array of src
    * @param {string[]} images lightbox's images path
    */
-  constructor (src, contents, fileExtension) {
-    this.medias = contents
+  constructor (src, srcList, mediaData) {
+    this.data = mediaData
+    this.srcList = srcList
+    this.src = src
     this.element = this.buildDom(src)
-    this.currentIndex = contents.indexOf(src)
-    this.src = contents
+    this.currentIndex = srcList.indexOf(src)
     document.body.appendChild(this.element)
-    this.media = this.render(src, this.extension)
+
+    this.render(src)
+    // this.title = this.getTitle(this.src, mediaData)
+    this.getTitle(this.src, mediaData)
+    // this.alt = this.getAlt(this.src, mediaData)
+    // console.log('current alt : ', this.getAlt(this.src, mediaData))
 
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
+  }
+
+  getTitle (src, data) {
+    const currentSrc = src.split('/').pop()
+    const currentObj = data.filter(el => el.content === currentSrc)
+    console.log('currentObj : ', currentObj)
+    const { alt, content } = currentObj
+    console.log('alt : ', alt)
+    console.log('content : ', content)
+  }
+
+  getAlt (src, data) {
+    data.forEach(el => {
+      if (src === el.content) {
+        console.log('Alt : ', el.alt)
+        return el.alt
+      } else {
+        console.log('No Alt')
+      }
+    })
   }
 
   /**
@@ -71,19 +98,19 @@ export default class Lightbox {
   next (e) {
     e.preventDefault()
     this.currentIndex++
-    if (this.currentIndex === this.medias.length) {
+    if (this.currentIndex === this.srcList.length) {
       this.currentIndex = 0
     }
-    this.render(this.src[this.currentIndex])
+    this.render(this.srcList[this.currentIndex], this.title, this.alt)
   }
 
   prev (e) {
     e.preventDefault()
     this.currentIndex--
     if (this.currentIndex < 0) {
-      this.currentIndex = this.medias.length - 1
+      this.currentIndex = this.srcList.length - 1
     }
-    this.render(this.src[this.currentIndex])
+    this.render(this.srcList[this.currentIndex], this.title, this.alt)
   }
 
   /**
@@ -94,7 +121,7 @@ export default class Lightbox {
   buildDom (src) {
     const dom = document.createElement('div')
     dom.classList.add('lightbox')
-    dom.innerHTML = `<button class="lightbox__close">Fermer</button>
+    dom.innerHTML = `<button class="lightbox__close" aria-label="Close lightbox">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précédent</button>
         <div class="lightbox__container" id="lightbox"></div>`
@@ -106,17 +133,26 @@ export default class Lightbox {
 
   render (src) {
     this.extension = src.split('.').pop()
+
     const container = document.getElementById('lightbox')
     container.innerHTML = ''
     if (this.extension === 'mp4') {
-      container.insertAdjacentHTML('afterbegin', `<video class="lightbox__content" alt="osef" width="640" height="480"
-      autoplay controls loop muted>
-        <source src="${src}" type="video/mp4">
-        </video>`)
+      container.insertAdjacentHTML('afterbegin',
+      `<figure>
+        <video class="lightbox__content" alt="" autoplay controls loop muted>
+            <source src="${src}" type="video/mp4">
+            <p></p>
+        </video>
+      </figure>
+        `)
     } else {
-      container.insertAdjacentHTML('afterbegin', `<img class="lightbox__content" alt="osef" src="${src}"></img>`)
+      container.insertAdjacentHTML('afterbegin',
+        `<figure> 
+          <img class="lightbox__content" alt="" src="${src}"></img>
+          <figcaption></figcaption>
+        </figure>
+        `)
     }
-    // container.appendChild
   }
 }
 // exéc fonction anonyme immédiatement

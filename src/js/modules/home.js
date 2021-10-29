@@ -1,7 +1,6 @@
 import { getData, createHomePage } from './functions.js'
 
-const apiUrl = '/src/assets/data/FishEyeData.json'
-// const apiUrl = 'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeData.json'
+const apiUrl = './src/assets/data/FishEyeData.json'
 
 getData(apiUrl)
   .then((data) => {

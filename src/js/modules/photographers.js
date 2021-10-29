@@ -70,8 +70,11 @@ export async function getMediaList () {
 
   // Create Modal
   const contactCta = document.querySelector('#cta-contact')
-  // eslint-disable-next-line no-new
-  contactCta.addEventListener('click', e => { new Modal(currentPhotographer) })
+  contactCta.addEventListener('click', e => {
+    // eslint-disable-next-line no-new
+    new Modal(currentPhotographer)
+    const giveFocus = () => { document.getElementById('firstName').focus() }
+  })
 
   return mediaList
 }

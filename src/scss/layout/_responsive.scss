@@ -20,7 +20,6 @@
   }
 }
 
-
 // under 425px screen size
 @include brk.breakpoint-mobile (mobile) {
   header,
@@ -113,4 +112,13 @@
   .legend {
     padding-block-end: 0;
   }
+
+
+  // MODAL-FORM
+  .modal__view {
+    width: 95vw;
+    height: 95vh;
+  }
+
+  //LIGHTBOX
 }

@@ -1,12 +1,17 @@
 @use "../utils/variables" as var;
 
-@mixin breakpoint-desk ($size) {
+// @mixin breakpoint-up ($size) {
+//   @media screen and (min-width: map-get(var.$breakpoints, $size)){
+//     @content;
+//   }
+// }
+@mixin breakpoint-down  ($size) {
   @media screen and (max-width: map-get(var.$breakpoints, $size)){
     @content;
   }
 }
-@mixin breakpoint-mobile ($size) {
-  @media screen and (max-width: map-get(var.$breakpoints, $size)){
-    @content;
-  }
-}
+// @mixin breakpoint-range ($start, $end) {
+//   @media screen and (min-width: map-get(var.$breakpoints, $start)) and (max-width: map-get(var.$breakpoints, $end)){
+//     @content;
+//   }
+// }

@@ -1,13 +1,32 @@
 @use "../layout/breakpoints" as brk;
 @use "../utils/variables" as var;
 
-// under 1024px screen size
-@include brk.breakpoint-desk(desktop) {
+// under 1023px screen size
+@include brk.breakpoint-down(desktop-down) {
   header,
   main {
-    margin-inline: 2rem;
+    margin-inline: 1rem;
   }
-//HOME PAGE
+/** HOMEPAGE **/
+  
+   // Grid of profil
+  .profil__container {
+    margin-inline: auto;
+    margin: 0;
+  }
+  .card__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.2rem;
+    margin-top: 2rem;
+  }
+  .tag__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .tag-item {
+    margin-bottom: 0.2rem;
+  }
 
 // PHOTOGRAPHER PAGE
   .photograph__container,
@@ -21,41 +40,17 @@
 }
 
 // under 425px screen size
-@include brk.breakpoint-mobile (mobile) {
-  header,
-  main {
-    margin-inline: 1rem;
-  }
+@include brk.breakpoint-down (mobile) {  
   .home-link {
-    width: fit-content;
     grid-area: link;
   }
+  
   .navbar{
     grid-area: navbar;
   }
   .nav__heading{
     grid-area: heading;
     font-size: large;
-  }
-  /** HOMEPAGE **/
-  
-  //navbar
-  header {
-    align-items: center;
-    gap: 0.2rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    "link heading"
-    "navbar navbar";
-    margin-bottom: 1rem;
-  }
-  .card__grid {
-    grid-template-columns: 1fr;
-  }
-  .tag__list {
-    flex-wrap: wrap;
-    justify-content: center;
   }
   .tag-item {
     margin-bottom: 0.4rem;

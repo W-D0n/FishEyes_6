@@ -83,6 +83,10 @@
   max-width: 90vw;
   max-height: 90vh;
 }
+.lightbox-content__legend{
+  align-self: flex-start;
+  color: clr.$font-primary;
+}
 
 @keyframes lightboxIn {
   from {opacity: 0;}

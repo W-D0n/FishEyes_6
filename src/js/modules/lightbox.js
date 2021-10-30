@@ -33,8 +33,8 @@ export default class Lightbox {
     document.body.appendChild(this.element)
 
     this.render(src)
-    // this.title = this.getTitle(this.src, mediaData)
-    this.getTitle(this.src, mediaData)
+    // this.title = this.getInfo(this.src, mediaData)
+    // this.getInfo(this.src, mediaData)
     // this.alt = this.getAlt(this.src, mediaData)
     // console.log('current alt : ', this.getAlt(this.src, mediaData))
 
@@ -44,22 +44,16 @@ export default class Lightbox {
 
   getTitle (src, data) {
     const currentSrc = src.split('/').pop()
-    const currentObj = data.filter(el => el.content === currentSrc)
-    console.log('currentObj : ', currentObj)
-    const { alt, content } = currentObj
-    console.log('alt : ', alt)
-    console.log('content : ', content)
+    const currentObj = data.find(el => el.content === currentSrc)
+    const title = currentObj.title
+    return title
   }
 
   getAlt (src, data) {
-    data.forEach(el => {
-      if (src === el.content) {
-        console.log('Alt : ', el.alt)
-        return el.alt
-      } else {
-        console.log('No Alt')
-      }
-    })
+    const currentSrc = src.split('/').pop()
+    const currentObj = data.find(el => el.content === currentSrc)
+    const alt = currentObj.alt
+    return alt
   }
 
   /**
@@ -101,7 +95,7 @@ export default class Lightbox {
     if (this.currentIndex === this.srcList.length) {
       this.currentIndex = 0
     }
-    this.render(this.srcList[this.currentIndex], this.title, this.alt)
+    this.render(this.srcList[this.currentIndex])
   }
 
   prev (e) {
@@ -110,7 +104,7 @@ export default class Lightbox {
     if (this.currentIndex < 0) {
       this.currentIndex = this.srcList.length - 1
     }
-    this.render(this.srcList[this.currentIndex], this.title, this.alt)
+    this.render(this.srcList[this.currentIndex])
   }
 
   /**
@@ -132,24 +126,24 @@ export default class Lightbox {
   }
 
   render (src) {
+    const title = this.getTitle(src, this.data)
+    const alt = this.getAlt(src, this.data)
     this.extension = src.split('.').pop()
 
     const container = document.getElementById('lightbox')
     container.innerHTML = ''
     if (this.extension === 'mp4') {
-      container.insertAdjacentHTML('afterbegin',
-      `<figure>
-        <video class="lightbox__content" alt="" autoplay controls loop muted>
-            <source src="${src}" type="video/mp4">
-            <p></p>
+      container.insertAdjacentHTML('afterbegin', `
+        <video class="lightbox__content" alt="${alt}" autoplay controls loop muted>
+          <source src="${src}" type="video/mp4">
         </video>
-      </figure>
+        <p class="lightbox-content__legend">${title}</p>
         `)
     } else {
       container.insertAdjacentHTML('afterbegin',
         `<figure> 
-          <img class="lightbox__content" alt="" src="${src}"></img>
-          <figcaption></figcaption>
+          <img class="lightbox__content" alt="${alt}" src="${src}"></img>
+          <figcaption class="lightbox-content__legend">${title}</figcaption>
         </figure>
         `)
     }

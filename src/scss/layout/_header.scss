@@ -6,10 +6,13 @@ header {
   margin-top: 2rem;
   margin-inline: 4rem;
 }
-.logo {
-  width: 200px;
-  height:50px;
+.home-link {
+  width: fit-content;
 }
+// .logo {
+//   width: 200px;
+//   height:50px;
+// }
 .navbar {
   display: flex;
   flex-wrap: wrap;

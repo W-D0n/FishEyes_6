@@ -6,6 +6,7 @@ $ft-w-middle: 700;
 $ft-w-normal: 400;
 
 $breakpoints: (
-  desktop: 64em, // equal to 1024px
-  mobile: 26.7em // equal to 425px
+  desktop-up: 64em, // equal to 1024px
+  desktop-down: 63.9em, // near to 1023px
+  mobile-down: 26.7em // equal to 425px
 );

@@ -149,9 +149,3 @@ export default class Lightbox {
     }
   }
 }
-// exéc fonction anonyme immédiatement
-// permet d'utiliser l'async/await (il faut être dans une fonction pour pouvoir utiliser l'asyncro) : (()=>{})()
-// (async () => {
-//   const mediaList = await getMediaList()
-//   Lightbox.init()
-// })()

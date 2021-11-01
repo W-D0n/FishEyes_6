@@ -3,22 +3,16 @@
 
 // under 1023px screen size
 @include brk.breakpoint-down(desktop-down) {
+  /** HOMEPAGE **/
   header,
   main {
     margin-inline: 1rem;
   }
-/** HOMEPAGE **/
-  
-   // Grid of profil
-  .profil__container {
-    margin-inline: auto;
-    margin: 0;
-  }
-  .card__grid {
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 0.2rem;
-    margin-top: 2rem;
-  }
+
+// Header
+header {
+  grid-template-columns: 1fr 2fr 0.8fr;
+}
   .tag__list {
     flex-wrap: wrap;
     justify-content: center;
@@ -26,6 +20,20 @@
   }
   .tag-item {
     margin-bottom: 0.2rem;
+  }
+  // Main Grid of profil
+  .profil__container {
+    margin-inline: auto;
+    margin: 0;
+  }
+  .card__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 1.5rem;
+    margin-block: 1rem;
+  }
+  .profil__description {
+    margin-top: 1.5rem;
   }
 
 // PHOTOGRAPHER PAGE
@@ -37,26 +45,55 @@
   .gallery__container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .cta-contact {
+    position: fixed;
+    left: 28vw;
+    top: 93vh;
+    height: 2rem;
+  }
+  .cta-info {
+    display: none;
+  }
+  // MODAL
+  .modal__submit{
+    align-self: center;
+  }
 }
 
 // under 425px screen size
-@include brk.breakpoint-down (mobile) {  
-  .home-link {
-    grid-area: link;
+@include brk.breakpoint-down (mobile-down) {  
+  // Header
+  header {
+    margin-top: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "logo header"
+    "navbar navbar"
+    ;
   }
-  
+  .home-link {
+    grid-area: logo;
+    align-self: center;
+  }
   .navbar{
     grid-area: navbar;
   }
   .nav__heading{
-    grid-area: heading;
+    grid-area: header;
     font-size: large;
   }
   .tag-item {
     margin-bottom: 0.4rem;
   }
 
-  // Grid of profil
+  // Main grid of profil
+  .card__grid {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 1.5rem;
+    margin-block: 1rem;
+  }
   .profil__container {
     margin: 0 auto;
   }
@@ -77,19 +114,17 @@
   .profil__name.photogr-name__view {
     font-size: 2rem;
   }
-  // .photogr-info__view {}
-  // .profil__tag-list{}
-
-  .photogr__view * {
-    margin-bottom: 0;
+  // Profil image contianer resized
+  .mobile_view {
+    align-self: baseline;
+    height: 110px;
+    width: 120px;
+  }
+  .img__profil {
+    max-width: 110%;
   }
 
-  .cta-contact {
-    position: fixed;
-    left: 28vw;
-    top: 93vh;
-    height: 2rem;
-  }
+  
   // navbar
   .navbar-select {
     display: none;
@@ -108,12 +143,10 @@
     padding-block-end: 0;
   }
 
-
   // MODAL-FORM
   .modal__view {
     width: 95vw;
     height: 95vh;
   }
 
-  //LIGHTBOX
 }

@@ -3,19 +3,18 @@
 header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 0.5rem;
   margin-top: 2rem;
   margin-inline: 4rem;
 }
 .home-link {
   width: fit-content;
 }
-// .logo {
-//   width: 200px;
-//   height:50px;
-// }
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;  
 }
 .tag__list {
   display: flex;
@@ -24,9 +23,10 @@ header {
 .nav__heading {
   justify-self: end;
   align-self: center;
+  text-align: center;
   margin: initial;
   font-family: DM Sans;
-  text-align: center;
   font-size: clamp(0.8rem, 2.5vw, 3vw);
   color: clr.$font-primary;
+  width: fit-content;
 }

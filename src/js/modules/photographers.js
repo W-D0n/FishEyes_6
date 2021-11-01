@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { getData, createPhotographer, createGallery, createFilter, addContactBtn, sortMedias } from './functions.js'
+import { getData, createPhotographer, createGallery, createFilter, addContactBtn, sortMedias, stickyBottomInfo } from './functions.js'
 import Lightbox from './lightbox.js'
 import Modal from './modal.js'
 
@@ -65,8 +65,8 @@ export async function getMediaList () {
   // Sum of likes for this photographer
   const numberOfLikes = mediaList.reduce((sum, object) => sum + object.likes, 0)
   console.log(numberOfLikes)
-  console.log(currentPrice)
   // Stiky bottom info
+  stickyBottomInfo(numberOfLikes, currentPrice)
 
   // Create Modal
   const contactCta = document.querySelector('#cta-contact')

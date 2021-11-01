@@ -1,23 +1,34 @@
 export default class Modal {
   constructor (photographer) {
     this.dom = this.buildDom(photographer)
-    // document.body.insertAdjacentHTML('beforeend', this.dom)
     document.body.appendChild(this.dom)
 
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
   }
 
+  // catching keyboard input
   onKeyUp (e) {
     if (e.key === 'Escape') {
       this.close(e)
     }
   }
 
+  // Save form info to a console
   submit (e) {
     e.preventDefault()
+    const btnSubmit = document.querySelector('.modal__submit')
+    // const inputFields = document.querySelectorAll('.input__control')
+    btnSubmit.addEventListener('click', (e) => {
+      const firstName = document.getElementById('firstName').value
+      const lastName = document.getElementById('lastName').value
+      const email = document.getElementById('email').value
+      const message = document.getElementById('message').value
+      console.log('Prénom : ', firstName, '\n', 'Nom : ', lastName, '\n', 'email : ', email, '\n', 'Message : ', message, '\n')
+    })
   }
 
+  // Close modal with timer to containt the fade effect
   close (e) {
     e.preventDefault()
     this.dom.classList.add('fadeOut')
@@ -27,6 +38,7 @@ export default class Modal {
     document.removeEventListener('keyup', this.onKeyUp)
   }
 
+  // Insert form in HTML DOM
   buildDom (name) {
     const dom = document.createElement('div')
     dom.classList.add('modal__container')

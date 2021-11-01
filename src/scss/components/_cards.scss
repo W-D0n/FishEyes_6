@@ -55,6 +55,9 @@
 	padding: 0.22rem;
 	border: 0.5px solid clr.$shadow;
 	border-radius: 11px;
+	cursor: initial;
+}
+.tag__list > .tag-item {
 	cursor: pointer;
 	&:hover {
 		transition: all 100ms ease-in-out;

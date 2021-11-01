@@ -59,7 +59,7 @@ export async function createGallery ({ photographerId, title, content, likes, al
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="${alt}" title="${title}" /></${label}>
     <div class="legend">
       <h4>${title}</h4>
-      <button class="legend__likes" aria-label="add a like">
+      <button class="legend__likes" aria-label="add a like to current number of ${likes}">
         <span class="likes__counter">${likes}</span>
         <span class="fas fa-heart likes__icon"></span>
       </button>
@@ -69,7 +69,7 @@ export async function createGallery ({ photographerId, title, content, likes, al
 // Global html insert in home/photographers pages
 const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, portrait) => {
   parentHtml.innerHTML = `
-  <div class="profil__img__container">
+  <div class="profil__img__container" id="profil__img__container">
     <img src="/src/assets/media/Photographers_ID/${portrait}" alt="Photographer's portrait" class="img__profil" />
   </div>
   <div class="profil__description" id="profil_${id}">    
@@ -97,6 +97,7 @@ const createTagList = ({ tags, id }) => {
   tags.forEach(tag => {
     const newTagItem = document.createElement('li')
     newTagItem.classList.add('tag-item')
+    newTagItem.setAttribute('aria-label', `tag ${tag}`)
     newTagList.appendChild(newTagItem)
     newTagItem.innerHTML = '# ' + `${tag}`
   })
@@ -110,6 +111,7 @@ export function getExtension (filePath) {
 }
 // Toggle between classnames for css display
 const toggleClassNames = (id) => {
+  document.getElementById('profil__img__container').classList.toggle('mobile_view')
   document.getElementById(`profil_${id}`).classList.toggle('profil__description')
   document.getElementById(`profil_${id}`).classList.toggle('photogr__view')
   document.getElementById(`name_${id}`).classList.toggle('al-c')
@@ -138,17 +140,13 @@ export async function createFilter (htmlContext) {
 export function sortMedias (value, medias) {
   switch (value) {
     case 'like':
-      // console.log('Sort by Like : ', medias.sort(byLike))
       return medias.sort(byLike)
     case 'date':
-      // console.log('Sort by Date : ', medias.sort(byDate))
       return medias.sort(byDate)
     case 'title':
-      // console.log('Sort by Title : ', medias.sort(byTitle))
       return medias.sort(byTitle)
     default : return medias.sort(byTitle)
   }
-  // console.log('mediaList : ', mediaList)
 }
 // byTitle, byDate, byLike : Custom sort functions
 function byTitle (a, b) {
@@ -168,4 +166,28 @@ function byDate (a, b) {
 }
 function byLike (a, b) {
   return parseInt(b.likes) - parseInt(a.likes)
+}
+
+// Scroll event
+const obsTarget = document.querySelector('.page__header')
+const btn = document.querySelector('.scroll-to-top')
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio < 0.3) {
+      btn.classList.remove('btn-fadeOut')
+    } else {
+      btn.classList.add('btn-fadeOut')
+    }
+  })
+}, { threshold: 0.3 })
+observer.observe(obsTarget)
+
+export function stickyBottomInfo (nbLikes, price) {
+  const photogrInfo = document.createElement('button')
+  photogrInfo.setAttribute('class', 'cta-info cta-btn')
+  main.appendChild(photogrInfo)
+  photogrInfo.innerHTML = `
+  <p>${nbLikes}<span class="fas fa-heart likes__icon"></span></p>
+  <p>${price} € / jour</p>
+  `
 }

@@ -64,7 +64,6 @@ export async function getMediaList () {
 
   // Sum of likes for this photographer
   const numberOfLikes = mediaList.reduce((sum, object) => sum + object.likes, 0)
-  console.log(numberOfLikes)
   // Stiky bottom info
   stickyBottomInfo(numberOfLikes, currentPrice)
 

@@ -872,7 +872,7 @@ header {
 .navbar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .tag__list {

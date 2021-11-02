@@ -78,7 +78,7 @@ const insertHtml = (parentHtml, name, id, city, country, tags, tagline, price, p
       <h3 class="location al-c" id="location_${id}">${country}, <span>${city}</span></h3>
       <p class="description__text al-c" id="txt_${id}">${tagline}</p>
     </div>
-    <u class="profil__tag-list" id="tagList_${id}"></u>
+    <ul class="profil__tag-list" id="tagList_${id}"></ul>
   </div>
 `
 }
@@ -128,7 +128,7 @@ export async function createFilter (htmlContext) {
   htmlContext.innerHTML = `
   <p class="select_text"> Trier par </p>
   <div class="custom-select cta-btn">
-    <select role="listbox" class="select-list" aria-label="sorting options list">
+    <select role="listbox" class="select-list" aria-label="button sort options">
       <option role="option" class="select-opt cta-btn" value="like" selected>Popularité</option>
       <option role="option" class="select-opt cta-btn" value="date">Date</option>
       <option role="option" class="select-opt cta-btn" value="title">Titre</option>

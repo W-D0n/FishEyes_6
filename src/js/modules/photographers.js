@@ -59,13 +59,21 @@ export async function getMediaList () {
     sortedList.forEach(element => {
       createGallery(element)
     })
-    Lightbox.init()
+    Lightbox.init(sortedList)
   }))
 
   // Sum of likes for this photographer
   const numberOfLikes = mediaList.reduce((sum, object) => sum + object.likes, 0)
   // Stiky bottom info
   stickyBottomInfo(numberOfLikes, currentPrice)
+  
+  // Add/remove like
+const likesContent = document.querySelector('.legend__likes')
+likesContent.addEventListener('click', e => {
+  console.log('click event ok')
+  console.log(object.likes + 1)
+})
+
 
   // Create Modal
   const contactCta = document.querySelector('#cta-contact')

@@ -25,6 +25,7 @@ export default class Modal {
       const email = document.getElementById('email').value
       const message = document.getElementById('message').value
       console.log('Prénom : ', firstName, '\n', 'Nom : ', lastName, '\n', 'email : ', email, '\n', 'Message : ', message, '\n')
+      this.close(e)
     })
   }
 
@@ -44,7 +45,7 @@ export default class Modal {
     dom.classList.add('modal__container')
     dom.innerHTML = `
     <div class="modal__view">
-      <button class="modal__close" aria-label="close form button" tabindex="5">
+      <button class="modal__close" aria-label="close form button">
         <img src="/src/assets/icons/modal_close.svg" alt="close icon's" class="closebtn">
       </button>
         <div class="modal__body">
@@ -53,22 +54,22 @@ export default class Modal {
           <form name="contact-form" action="index.html" method="POST" id="contact-form">
             <div class="form-item">
               <label class="item-label" for="firstName">Prénom</label><br>                
-              <input class="input__control" type="text" id="firstName" name="firstName" tabindex="0"/><br>
+              <input class="input__control" type="text" id="firstName" name="firstName"/><br>
               <p class="error__field" id="firstNameErrorField"></p>
             </div>
             <div class="form-item">
               <label class="item-label" for="lastName">Nom</label><br>
-              <input class="input__control" type="text" id="lastName" name="lastName" tabindex="1"/><br>
+              <input class="input__control" type="text" id="lastName" name="lastName"/><br>
               <p class="error__field" id="lastNameErrorField"></p>
             </div>
             <div class="form-item">
               <label class="item-label" for="email">E-mail</label><br>
-              <input class="input__control" type="email" id="email" name="email" tabindex="2"/><br>
+              <input class="input__control" type="email" id="email" name="email"/><br>
               <p class="error__field" id="emailErrorField"></p>
             </div>
             <div class="form-item">
               <label class="item-label" for="message">Votre message</label><br>
-              <textarea class="input__control area" name="message" id="message" tabindex="3"></textarea>
+              <textarea class="input__control area" name="message" id="message"></textarea>
               <p class="error__field" id="emailErrorField"></p>
             </div>
           </form>

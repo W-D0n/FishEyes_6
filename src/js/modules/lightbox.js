@@ -33,25 +33,21 @@ export default class Lightbox {
     document.body.appendChild(this.element)
 
     this.render(src)
-    // this.title = this.getInfo(this.src, mediaData)
-    // this.getInfo(this.src, mediaData)
-    // this.alt = this.getAlt(this.src, mediaData)
-    // console.log('current alt : ', this.getAlt(this.src, mediaData))
 
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
   }
 
-  getTitle (src, data) {
+  getTitle (src) {
     const currentSrc = src.split('/').pop()
-    const currentObj = data.find(el => el.content === currentSrc)
+    const currentObj = this.data.find(el => el.content === currentSrc)
     const title = currentObj.title
     return title
   }
 
-  getAlt (src, data) {
+  getAlt (src) {
     const currentSrc = src.split('/').pop()
-    const currentObj = data.find(el => el.content === currentSrc)
+    const currentObj = this.data.find(el => el.content === currentSrc)
     const alt = currentObj.alt
     return alt
   }
@@ -97,7 +93,6 @@ export default class Lightbox {
     }
     this.render(this.srcList[this.currentIndex])
   }
-
   prev (e) {
     e.preventDefault()
     this.currentIndex--
@@ -125,27 +120,38 @@ export default class Lightbox {
     return dom
   }
 
-  render (src) {
-    const title = this.getTitle(src, this.data)
-    const alt = this.getAlt(src, this.data)
-    this.extension = src.split('.').pop()
+  render (src) {    
+    this.extension = src.split('.').pop()    
+    this.title = this.getTitle(src)
+    this.alt = this.getAlt(src)
 
     const container = document.getElementById('lightbox')
     container.innerHTML = ''
     if (this.extension === 'mp4') {
-      container.insertAdjacentHTML('afterbegin', `
-        <video class="lightbox__content" alt="${alt}" autoplay controls loop muted>
-          <source src="${src}" type="video/mp4">
-        </video>
-        <p class="lightbox-content__legend">${title}</p>
-        `)
+      let video = new Vid(src, container, this.title, this.alt)
     } else {
-      container.insertAdjacentHTML('afterbegin',
+      let image = new Img(src, container, this.title, this.alt)
+    }
+  }
+}
+
+class Vid {
+  constructor(src, container, title, alt) {
+    container.insertAdjacentHTML('afterbegin', `
+    <video class="lightbox__content" alt="${alt}" autoplay controls loop muted>
+      <source src="${src}" type="video/mp4">
+    </video>
+    <p class="lightbox-content__legend">${title}</p>
+    `)
+  }
+}
+class Img {
+  constructor(src, container, title, alt) {
+    container.insertAdjacentHTML('afterbegin',
         `<figure> 
           <img class="lightbox__content" alt="${alt}" src="${src}"></img>
           <figcaption class="lightbox-content__legend">${title}</figcaption>
         </figure>
         `)
-    }
   }
 }

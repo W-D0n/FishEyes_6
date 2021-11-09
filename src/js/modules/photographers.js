@@ -67,21 +67,29 @@ export async function getMediaList () {
   // Stiky bottom info
   stickyBottomInfo(numberOfLikes, currentPrice)
   
-  // Add/remove like
-const likesContent = document.querySelector('.legend__likes')
-likesContent.addEventListener('click', e => {
-  console.log('click event ok')
-  console.log(object.likes + 1)
-})
-
-
   // Create Modal
   const contactCta = document.querySelector('#cta-contact')
   contactCta.addEventListener('click', e => {
     // eslint-disable-next-line no-new
     new Modal(currentPhotographer)
-    const giveFocus = () => { document.getElementById('firstName').focus() }
   })
+  // Add/remove like
+  const legend = document.querySelectorAll('.legend__likes')
+  let isLiked = false
+  legend.forEach(btn => btn.addEventListener('click', e => {
+    
+    let currentLikes = parseInt(btn.querySelector('.likes__counter').textContent)
+    if (isLiked === false) {
+    currentLikes += 1
+      isLiked = true
+      btn.querySelector('.likes__counter').textContent = currentLikes
+    } else if (isLiked === true) {
+      currentLikes -= 1
+      isLiked = false
+      btn.querySelector('.likes__counter').textContent = currentLikes
+    }
+  }))
 
   return mediaList
 }
+

@@ -43,6 +43,11 @@
 .scroll-to-top.btn-fadeOut {
   top: -2rem;
 }
+//Legend button
+.legend__likes {
+  cursor: pointer;
+  z-index: 9;
+}
 
 // Cta CONTACT
 .cta-contact{
@@ -55,8 +60,8 @@
         color: clr.$neutral-black;
     }
 }
-// Filter button of photographers page
 
+// Filter button of photographers page
 .navbar-select{
   display: flex;
   flex-direction: row;
@@ -64,18 +69,14 @@
   margin-inline: 4rem;
   margin-top: 2rem;
 }
-/*the container must be positioned relative:*/
+
+/* the container must be positioned relative: */
 .custom-select {
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   position: relative;
   margin: 1rem 4rem 2rem;
 }
 
-// .custom-select select {
-//   display: none; /*hide original SELECT element:*/
-// }
 .select-list{
   width: 100%;
   height: 100%;

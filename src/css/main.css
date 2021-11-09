@@ -397,6 +397,7 @@ h1 {
   background-color: #db8876;
   color: black;
   font-size: x-large;
+  cursor: initial;
   width: 17rem;
   height: 2.5rem;
   padding: 1rem;
@@ -422,6 +423,11 @@ h1 {
   top: -2rem;
 }
 
+.legend__likes {
+  cursor: pointer;
+  z-index: 9;
+}
+
 .cta-contact {
   position: absolute;
   left: 26rem;
@@ -441,7 +447,7 @@ h1 {
   margin-top: 2rem;
 }
 
-/*the container must be positioned relative:*/
+/* the container must be positioned relative: */
 .custom-select {
   display: flex;
   position: relative;

@@ -59,7 +59,7 @@ export async function createGallery ({ photographerId, title, content, likes, al
     <${label} class="media__content" src="/src/assets/media/${photographerId}/${content}"  alt="${alt}" title="${title}" /></${label}>
     <div class="legend">
       <h4>${title}</h4>
-      <button class="legend__likes" aria-label="add a like to current number of ${likes}">
+      <button class="legend__likes" id="legend__likes "aria-label="add a like to current number of ${likes}">
         <span class="likes__counter">${likes}</span>
         <span class="fas fa-heart likes__icon"></span>
       </button>
@@ -182,6 +182,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 })
 observer.observe(obsTarget)
 
+// Display total of likes for this photographer and his price
 export function stickyBottomInfo (nbLikes, price) {
   const photogrInfo = document.createElement('button')
   photogrInfo.setAttribute('class', 'cta-info cta-btn')

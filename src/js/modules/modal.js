@@ -18,12 +18,12 @@ export default class Modal {
   submit (e) {
     e.preventDefault()
     const btnSubmit = document.querySelector('.modal__submit')
-    // const inputFields = document.querySelectorAll('.input__control')
-    btnSubmit.addEventListener('click', (e) => {
-      const firstName = document.getElementById('firstName').value
-      const lastName = document.getElementById('lastName').value
-      const email = document.getElementById('email').value
-      const message = document.getElementById('message').value
+    const firstName = document.getElementById('firstName').value
+    const lastName = document.getElementById('lastName').value
+    const email = document.getElementById('email').value
+    const message = document.getElementById('message').value
+    
+    btnSubmit.addEventListener('click', e => {
       console.log('Prénom : ', firstName, '\n', 'Nom : ', lastName, '\n', 'email : ', email, '\n', 'Message : ', message, '\n')
       this.close(e)
     })
@@ -74,7 +74,7 @@ export default class Modal {
             </div>
           </form>
         </div>
-        <button class="modal__submit cta-btn" id="submitBtn" aria-label="Submit form" type="submit" tabindex="4">Envoyer</button>
+        <button class="modal__submit cta-btn" id="submitBtn" aria-label="Submit form" type="submit">Envoyer</button>
       </div>
       `
     dom.querySelector('.modal__close').addEventListener('click', this.close.bind(this))

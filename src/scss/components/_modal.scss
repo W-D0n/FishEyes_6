@@ -36,13 +36,9 @@
   position: absolute;
   cursor: pointer;
   align-self: flex-end;
-//   background: url(/src/assets/icons/modal_close.svg) center center / 100% 100% no-repeat transparent;
+
 }
 
-// .modal__submit {
-//   bottom: 2rem;
-//   text-align: center;
-// }
 .modal__heading{
   @include typo.names-font;
   font-size: 2.5rem;

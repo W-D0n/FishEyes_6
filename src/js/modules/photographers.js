@@ -76,15 +76,16 @@ export async function getMediaList () {
   // Add/remove like
   const legend = document.querySelectorAll('.legend__likes')
   let isLiked = false
+
   legend.forEach(btn => btn.addEventListener('click', e => {
     let currentLikes = parseInt(btn.querySelector('.likes__counter').textContent)
     if (isLiked === false) {
-    currentLikes += 1
+    this.currentLikes += 1
     numberOfLikes += 1
       isLiked = true
       btn.querySelector('.likes__counter').textContent = currentLikes
     } else if (isLiked === true) {
-      currentLikes -= 1
+      this.currentLikes -= 1
       numberOfLikes -= 1
       isLiked = false
       btn.querySelector('.likes__counter').textContent = currentLikes

@@ -80,12 +80,12 @@ export async function getMediaList () {
   legend.forEach(btn => btn.addEventListener('click', e => {
     let currentLikes = parseInt(btn.querySelector('.likes__counter').textContent)
     if (isLiked === false) {
-    this.currentLikes += 1
+    currentLikes += 1
     numberOfLikes += 1
       isLiked = true
       btn.querySelector('.likes__counter').textContent = currentLikes
     } else if (isLiked === true) {
-      this.currentLikes -= 1
+      currentLikes -= 1
       numberOfLikes -= 1
       isLiked = false
       btn.querySelector('.likes__counter').textContent = currentLikes

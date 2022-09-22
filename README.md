@@ -16,9 +16,10 @@
 Frontend developper (junior)
 ### Goal / Objectif
 - Construire la partie front du prototype d'un nouveau site / Build front part of a website prototype.
-- Intégration de maquette / Mockup integration.</n>
+- Intégration de maquette / Mockup integration.
 - Implémentation d'une modal type carousel / Implementation of lightbox for image's slider.
 - Implémentation de la fonction de tri / Implementation of a filter feature.
+- Respecter la sémantique HTML pour faciliter l'accessibilité / Respect the HTML semantic to improve accessibility (a11y and screen-readers).
 
 ---
 ## Project
@@ -29,7 +30,7 @@ Frontend developper (junior)
 
 ### Setup
 #### Install
-  `git clone https://github.com/W-Kamal/FishEyes_6.git`
+  `git clone https://github.com/W-Kamal/FishEyes_6.git` and use a live server.
   
 ---
 ## Potential improvements / Améliorations possibles

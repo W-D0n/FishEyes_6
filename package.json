@@ -1,5 +1,5 @@
 {
-  "name": "wardikamal_6_22092021",
+  "name": " FishEyes_6",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WARDI-Kamal/wardikamal_6_22092021.git"
+    "url": "git+https://github.com/W-Kamal/FishEyes_6.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WARDI-Kamal/wardikamal_6_22092021/issues"
+    "url": "https://github.com/W-Kamal/FishEyes_6/issues"
   },
-  "homepage": "https://github.com/WARDI-Kamal/wardikamal_6_22092021#readme"
+  "homepage": "https://github.com/W-Kamal/FishEyes_6#readme"
 }

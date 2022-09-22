@@ -9,14 +9,28 @@
 ---
 ## Summary
 ### Context
+- Mise en situation / Case Study.
+- Techasite, une société de conseil spécialisée dans le développement de sites web et d'applications mobiles / Techasite is a web and mobile agency.
+- L'agence a été mandatée pour construire le prototype d'une plateforme permettant aux photographes de présenter leur travaux : Fisheye / - This company was commissioned to build the Fisheye prototype which provide photographers with a place to display their work.
+#### My function / Rôle
+Frontend developper (junior)
 ### Goal / Objectif
-### My function / Rôle
+- Construire la partie front du prototype d'un nouveau site / Build front part of a website prototype.
+- Intégration de maquette / Mockup integration.</n>
+- Implémentation d'une modal type carousel / Implementation of lightbox for image's slider.
+- Implémentation de la fonction de tri / Implementation of a filter feature.
+
 ---
 ## Project
-### Prerequisites
-### Dependencies
+### Assets
+- Mockup : [Figma](https://www.figma.com/file/Q3yNeD7WTK9QHDldg9vaRl/UI-Design-FishEye-FR?node-id=0%3A1)
+- Source code starter : [Git](https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye)
+- Images : [Amazon Storage](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEye_Photos.zip)
 
 ### Setup
+#### Install
+  `git clone https://github.com/W-Kamal/FishEyes_6.git`
+  
 ---
 ## Potential improvements / Améliorations possibles
 This project was made for learning a specific aspect of a feature. Therefore it might appeat incomplete.

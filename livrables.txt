@@ -1,3 +1,0 @@
-Repo Github : https://github.com/WARDI-Kamal/wardikamal_6_22092021
-
-src du json :  wardikamal_6_22092021/src/assets/data/FishEyeData.json 

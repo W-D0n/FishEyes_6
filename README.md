@@ -34,7 +34,8 @@ Frontend developper (junior)
   
 ---
 ## Potential improvements / Améliorations possibles
-This project was made for learning a specific aspect of a feature. Therefore it might appeat incomplete.
+This project was made for learning a specific aspect of a feature. Therefore it might appear incomplete.
+If I had to push further this project, I would work on :
 1. Performance optimisation.
 2. Build a backend.
 3. Fix some UI/CSS issues.

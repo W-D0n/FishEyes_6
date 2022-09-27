@@ -28,8 +28,7 @@ Frontend developper (junior)
 - Source code starter : [Git](https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye)
 - Images : [Amazon Storage](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEye_Photos.zip)
 
-### Setup
-#### Install
+### Getting Started
   `git clone https://github.com/W-Kamal/FishEyes_6.git` and use a live server.
   
 ---

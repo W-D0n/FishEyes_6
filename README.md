@@ -21,7 +21,7 @@ Frontend developper (junior)
 - Implémentation de la fonction de tri / Implementation of a filter feature.
 - Respecter la sémantique HTML pour faciliter l'accessibilité / Respect the HTML semantic to improve accessibility (a11y and screen-readers).
 
----
+
 ## Project
 ### Assets
 - Mockup : [Figma](https://www.figma.com/file/Q3yNeD7WTK9QHDldg9vaRl/UI-Design-FishEye-FR?node-id=0%3A1)
@@ -31,7 +31,7 @@ Frontend developper (junior)
 ### Getting Started
   `git clone https://github.com/W-Kamal/FishEyes_6.git` and use a live server.
   
----
+
 ## Potential improvements / Améliorations possibles
 This project was made for learning a specific aspect of a feature. Therefore it might appear incomplete.
 If I had to push further this project, I would work on :

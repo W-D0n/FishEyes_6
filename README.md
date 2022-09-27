@@ -2,10 +2,12 @@
   <img src="/src/assets/icons/logo.png" width="300px"alt="Logo image"/>
 </p>
 
----
-[![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&labelColor=fff&logo=html5&logoColor=E34F26)](https://developer.mozilla.org/fr/docs/Glossary/HTML)
-[![](https://img.shields.io/badge/CSS-1572B6?style=flat-square&labelColor=fff&logo=css3&logoColor=1572B6)](https://developer.mozilla.org/fr/docs/Web/CSS/Reference)
-[![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=fff&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&labelColor=fff&logo=html5&logoColor=E34F26" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&labelColor=fff&logo=css3&logoColor=1572B6" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=fff&logo=javascript&logoColor=F7DF1E" />
+</p>
+
 ---
 ## Summary
 ### Context
